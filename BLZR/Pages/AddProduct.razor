@@ -1,0 +1,40 @@
+﻿@page "/add-product"
+@using ProductApp
+@using ProductApp.Models
+@inject ProductService ProductService
+
+<h3>Add Product</h3>
+
+<EditForm Model="newProduct" OnValidSubmit="HandleValidSubmit">
+    <div>
+        <label>Name:</label>
+        <InputText @bind-Value="newProduct.Name" />
+    </div>
+    <div>
+        <label>Date:</label>
+        <InputDate @bind-Value="newProduct.Date" />
+    </div>
+    <div>
+        <label>Price:</label>
+        <InputNumber @bind-Value="newProduct.Price" />
+    </div>
+    <div>
+        <label>Category:</label>
+        <InputText @bind-Value="newProduct.Category" />
+    </div>
+    <div>
+        <label>Quantity:</label>
+        <InputNumber @bind-Value="newProduct.Quantity" />
+    </div>
+    <button type="submit">Add Product</button>
+</EditForm>
+
+@code {
+    private Product newProduct = new Product();
+
+    private void HandleValidSubmit()
+    {
+        ProductService.AddProduct(newProduct);
+        newProduct = new Product();
+    }
+}

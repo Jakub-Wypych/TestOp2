@@ -1,0 +1,29 @@
+﻿@page "/products"
+@using ProductApp
+@inject ProductService ProductService
+
+<h3>Product List</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in ProductService.GetProducts())
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Date.ToShortDateString()</td>
+                <td>@product.Price</td>
+                <td>@product.Category</td>
+                <td>@product.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

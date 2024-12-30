@@ -1,0 +1,149 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\pages\\products.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:pages\\products.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\pages\\addproduct.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:pages\\addproduct.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\blzr\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddProduct.razor",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Pages\\AddProduct.razor",
+              "RelativeDocumentMoniker": "Pages\\AddProduct.razor",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Pages\\AddProduct.razor",
+              "RelativeToolTip": "Pages\\AddProduct.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-30T18:55:53.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Products.razor",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Pages\\Products.razor",
+              "RelativeDocumentMoniker": "Pages\\Products.razor",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Pages\\Products.razor",
+              "RelativeToolTip": "Pages\\Products.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-30T18:55:24.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-30T18:54:45.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-30T18:54:24.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\App.razor",
+              "RelativeDocumentMoniker": "App.razor",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\App.razor",
+              "RelativeToolTip": "App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-30T18:54:11.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T18:53:56.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\ProductService.cs",
+              "RelativeDocumentMoniker": "ProductService.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\ProductService.cs",
+              "RelativeToolTip": "ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T18:53:17.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Product.cs",
+              "RelativeDocumentMoniker": "Product.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\BLZR\\Product.cs",
+              "RelativeToolTip": "Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T18:52:50.879Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
