@@ -14,9 +14,15 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
     <PackageReference Include="FluentAssertions" Version="6.2.0" />
   </ItemGroup>
+	
+    <ItemGroup>
+		<ProjectReference Include="..\ProductApi\ProductApi.csproj"/>
+    </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Drivers\" />
+    <Folder Include="Features\" />
+    <Folder Include="StepDefinitions\" />
     <Folder Include="Support\" />
   </ItemGroup>
 
