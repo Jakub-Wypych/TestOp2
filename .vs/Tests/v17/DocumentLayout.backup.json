@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|c:\\users\\ja\\onedrive - politechnika warszawska\\pulpit\\nowy folder (2)\\studia\\sem 5\\testop2\\blzr\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|solutionrelative:blzr\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|c:\\users\\ja\\onedrive - politechnika warszawska\\pulpit\\nowy folder (2)\\studia\\sem 5\\testop2\\blzr\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|solutionrelative:blzr\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|c:\\users\\ja\\onedrive - politechnika warszawska\\pulpit\\nowy folder (2)\\studia\\sem 5\\testop2\\blzr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|solutionrelative:blzr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|c:\\users\\ja\\onedrive - politechnika warszawska\\pulpit\\nowy folder (2)\\studia\\sem 5\\testop2\\blzr\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38D58DD1-6423-4F91-A330-44F82617344F}|BLZR\\BLZR.csproj|solutionrelative:blzr\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\ProductService.cs",
+              "RelativeDocumentMoniker": "BLZR\\ProductService.cs",
+              "ToolTip": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\ProductService.cs",
+              "RelativeToolTip": "BLZR\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T09:38:20.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\Product.cs",
+              "RelativeDocumentMoniker": "BLZR\\Product.cs",
+              "ToolTip": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\Product.cs",
+              "RelativeToolTip": "BLZR\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T09:36:32.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\Program.cs",
+              "RelativeDocumentMoniker": "BLZR\\Program.cs",
+              "ToolTip": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\Program.cs",
+              "RelativeToolTip": "BLZR\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T09:36:31.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "BLZR\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "BLZR\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-01T09:36:25.502Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1883,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
