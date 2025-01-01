@@ -32,8 +32,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHJvZHVjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jakub/Desktop/None/college/year3/Testowanie gowna/TestOp2/TestOp2/BLZR/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/Jakub/Desktop/None/college/year3/Testowanie gowna/TestOp2/TestOp2/BLZR/Pages/EditProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jakub/Desktop/None/college/year3/Testowanie gowna/TestOp2/TestOp2/BLZR/Pages/Home.razor]
@@ -42,10 +42,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jakub/Desktop/None/college/year3/Testowanie gowna/TestOp2/TestOp2/BLZR/Pages/Products.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Jakub/Desktop/None/college/year3/Testowanie gowna/TestOp2/TestOp2/BLZR/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jakub/Desktop/None/college/year3/Testowanie gowna/TestOp2/TestOp2/BLZR/_Imports.razor]

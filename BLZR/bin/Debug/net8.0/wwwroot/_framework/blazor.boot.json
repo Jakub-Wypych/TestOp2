@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BLZR",
   "resources": {
-    "hash": "sha256-0GMoVL1boAZMs/aZpiKVjYMqvDeWP9MqVzBSnO9/ccg=",
+    "hash": "sha256-lPz/CA6NDYFvqt48/UEBbO6TGeHTvvKv44K+nT27xIo=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -209,10 +209,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "BLZR.wasm": "sha256-zOV0nmI8zoINVtnmYWhwLOjTdV7CGldtImRO5nvxpAI="
+      "BLZR.wasm": "sha256-U5ElUQQ/itamM6k8PgPHvvC1vvGbaauFzG4UQtH4NDM="
     },
     "pdb": {
-      "BLZR.pdb": "sha256-+X+gh7nDRI1TVXvhzIWgYPT3LzunwJHl9Bf75yQTS9Y="
+      "BLZR.pdb": "sha256-noGXApDl3bP6P8h+RwvCdRs1/zv1E1zhY5grt67aexI="
     }
   },
   "cacheBootResources": true,
