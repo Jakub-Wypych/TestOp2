@@ -1,12 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\TestOp2\\BLZR\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|c:\\users\\jakub\\desktop\\none\\college\\year3\\testowanie gowna\\testop2\\testop2\\blzr\\pages\\products.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EE6A769F-A53B-4195-B464-52248A9FCAE3}|BLZR.csproj|solutionrelative:pages\\products.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,20 +9,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Products.razor",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\TestOp2\\BLZR\\Pages\\Products.razor",
-              "RelativeDocumentMoniker": "Pages\\Products.razor",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\None\\college\\year3\\Testowanie gowna\\TestOp2\\TestOp2\\BLZR\\Pages\\Products.razor",
-              "RelativeToolTip": "Pages\\Products.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-01T12:45:20.111Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1883,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }
