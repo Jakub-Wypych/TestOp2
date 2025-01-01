@@ -1,0 +1,100 @@
+﻿@page "/edit-product/{id:int}"
+@using ProductApp
+@using ProductApp.Models
+@inject ProductService ProductService
+
+<h1>Edit Product</h1>
+
+@if (productToEdit == null)
+{
+    <div class="alert alert-danger">Product not found!</div>
+}
+else
+{
+    <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+        <input type="text" id="productName" class="form-control @(string.IsNullOrWhiteSpace(productToEdit.Name) && invalidSubmit ? "is-invalid" : "")"
+               @bind="productToEdit.Name" placeholder="Enter product name" />
+        @if (string.IsNullOrWhiteSpace(productToEdit.Name) && invalidSubmit)
+        {
+            <div class="invalid-feedback">Product Name is required.</div>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="productDate" class="form-label">Product Date</label>
+        <input type="date" id="productDate" class="form-control"
+               @bind="productToEdit.Date" />
+    </div>
+
+    <div class="mb-3">
+        <label for="productPrice" class="form-label">Product Price</label>
+        <input type="number" id="productPrice" class="form-control @(productToEdit.Price < 0 && invalidSubmit ? "is-invalid" : "")"
+               @bind="productToEdit.Price" placeholder="Enter product price" min="0" />
+        @if (productToEdit.Price < 0 && invalidSubmit)
+        {
+            <div class="invalid-feedback">Product Price must be greater or equal than 0.</div>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="productCategory" class="form-label">Product Category</label>
+        <input type="text" id="productCategory" class="form-control @(string.IsNullOrWhiteSpace(productToEdit.Category) && invalidSubmit ? "is-invalid" : "")"
+               @bind="productToEdit.Category" placeholder="Enter product category" />
+        @if (string.IsNullOrWhiteSpace(productToEdit.Category) && invalidSubmit)
+        {
+            <div class="invalid-feedback">Product Category is required.</div>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="stockQuantity" class="form-label">Stock Quantity</label>
+        <input type="number" id="stockQuantity" class="form-control @(productToEdit.Quantity < 0 && invalidSubmit ? "is-invalid" : "")"
+               @bind="productToEdit.Quantity" placeholder="Enter stock quantity" min="0" />
+        @if (productToEdit.Quantity < 0 && invalidSubmit)
+        {
+            <div class="invalid-feedback">Stock Quantity must be greater or equal than 0.</div>
+        }
+    </div>
+
+    <button class="btn btn-primary" @onclick="OnSaveChangesClick">Save Changes</button>
+
+    @if (isValidSubmit)
+    {
+        <div class="alert alert-success mt-3">Changes saved successfully!</div>
+    }
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Product? productToEdit;
+
+    private bool invalidSubmit = false;
+    private bool isValidSubmit = false;
+
+    protected override void OnInitialized()
+    {
+        productToEdit = ProductService.GetProducts().FirstOrDefault(p => p.Id == Id);
+
+        if (productToEdit == null)
+        {
+            // Możesz obsłużyć brak produktu, np. przekierować na inną stronę
+        }
+    }
+
+    private async Task OnSaveChangesClick()
+    {
+        if (productToEdit == null || string.IsNullOrWhiteSpace(productToEdit.Name) ||
+            productToEdit.Price < 0 || string.IsNullOrWhiteSpace(productToEdit.Category) ||
+            productToEdit.Quantity < 0)
+        {
+            invalidSubmit = true;
+            return;
+        }
+
+        isValidSubmit = true;
+        ProductService.EditProduct(productToEdit);
+    }
+}
