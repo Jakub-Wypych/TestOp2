@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BLZR",
   "resources": {
-    "hash": "sha256-3k3EDNgbVIBC/CHy2UcPL4+95JS1kzbmpk9ydzuuZqE=",
+    "hash": "sha256-FcMDGzq+ZMGjFp+3K49sn8XPUCWPUsJTMjMtP4bqLCY=",
     "jsModuleNative": {
       "dotnet.native.8.0.11.x6xxso5mmh.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -33,6 +33,7 @@
       "Microsoft.Extensions.FileProviders.Abstractions.wasm": "sha256-IUopixuV8E09mP+TIgRp/lXEbeacXbUTW7cu0v5B9Tc=",
       "Microsoft.Extensions.FileProviders.Physical.wasm": "sha256-MS+zB0xkKhKk/QdE32ZwKtdlrLMLI/y2NAKPUWhcBVg=",
       "Microsoft.Extensions.FileSystemGlobbing.wasm": "sha256-AnWUKd0qJ8ZNKkRC0AFK2cjjszB7reXiP+bXdIi8bic=",
+      "Microsoft.Extensions.Http.wasm": "sha256-WZDaGkaj9Dm3pM+f0wKlw7oWs/Jrsj57mUt/ePjoKK4=",
       "Microsoft.Extensions.Logging.wasm": "sha256-pa0M3exxNvk6g5anUwlaPC99Afawsi1GZvJeU1q/ZGM=",
       "Microsoft.Extensions.Logging.Abstractions.wasm": "sha256-glWux6/5FFNJxVrbRPQ/PhLriEkSd3TllLfjmvZbpKw=",
       "Microsoft.Extensions.Options.wasm": "sha256-5/m+yVFGRuY+N4jQnD+QETKH0AfhAsnVze5dJ5ogIVM=",
@@ -208,10 +209,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "BLZR.wasm": "sha256-U3tueQbkIVoZmQ5A0CG5e5NUeIpWZ3ii6IMhUmMZi3A="
+      "BLZR.wasm": "sha256-t2qUXjbY9HvWLTlpRHUi8tTp35RJrjUWP12XtsyWx9U="
     },
     "pdb": {
-      "BLZR.pdb": "sha256-TEZYLUViL3KvyWe+hq1O09mI/eKni3eHNEyUxCxQ2Gs="
+      "BLZR.pdb": "sha256-BqC3EQvG2PZpPLungwCoIG8pxbIyWX0F5M8Ig1D4+mc="
     }
   },
   "cacheBootResources": true,

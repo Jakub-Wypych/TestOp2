@@ -15,13 +15,13 @@
   Scenario: Editing a product via the API
     Given the product with ID 2 exists in the database with the name "Laptop"
     When a PUT request is made to the endpoint `api/products/2` with new data ("Name": "Laptop Pro", "Price": 1200)
-    Then the response should have a status code 204 No Content
+    Then the response to the PUT request should have a status code 204 No Content
     And the product "Laptop" should be updated to "Laptop Pro" with a new price of 1200
 
   Scenario: Deleting a product via the API
     Given the product with ID 3 exists in the database
     When a DELETE request is made to the endpoint `api/products/3`
-    Then the response should have a status code 204 No Content
+    Then the response to the DELETE request should have a status code 204 No Content
     And the product with ID 3 should be deleted from the database
 
    Scenario: Handling errors when deleting a non-existing product

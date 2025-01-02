@@ -1,29 +1,78 @@
 ﻿@page "/products"
 @using ProductApp
-@inject ProductService ProductService
+@using ProductApp.Models
+@inject IProductService ProductService
 
 <h3>Product List</h3>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Name</th>
             <th>Date</th>
             <th>Price</th>
             <th>Category</th>
-            <th>Quantity</th>
+            <th>Stock (Quantity)</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in ProductService.GetProducts())
+        @if (products != null)
         {
-            <tr>
-                <td>@product.Name</td>
-                <td>@product.Date.ToShortDateString()</td>
-                <td>@product.Price</td>
-                <td>@product.Category</td>
-                <td>@product.Quantity</td>
-            </tr>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Date.ToString("MM-dd-yyyy")</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>@product.Category</td>
+                    <td>@product.Quantity</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => NavigateToEdit(product.Id)">Edit</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteProduct(product)">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6">Loading...</td></tr>
         }
     </tbody>
 </table>
+
+@code {
+    private List<Product> products;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = (await ProductService.GetProducts()).ToList(); 
+    }
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    private void NavigateToEdit(int productId)
+    {
+        NavigationManager.NavigateTo($"/edit-product/{productId}");
+    }
+
+    private async Task DeleteProduct(Product product)
+    {
+        await ProductService.DeleteProduct(product.Id);
+        StateHasChanged(); 
+    }
+
+    private void UpdatePrice(Product product, string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            product.Price = 0;
+        }
+        else if (decimal.TryParse(value, out var parsedValue))
+        {
+            product.Price = parsedValue;
+        }
+    }
+}

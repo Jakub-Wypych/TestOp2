@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BLZR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1387ad31f1a33375cd97fc3259e9c64d91db9df4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e3614b13fd780695a3acc1d528dc6b7b955aedc")]
 [assembly: System.Reflection.AssemblyProductAttribute("BLZR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BLZR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
