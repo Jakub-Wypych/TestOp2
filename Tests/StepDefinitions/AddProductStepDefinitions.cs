@@ -1,16 +1,6 @@
-using System;
-using TechTalk.SpecFlow;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Testing;
-using ProductApi;
+using BLZR.Pages;
 using NUnit.Framework;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using ProductApp.Models;
 
 namespace Tests.StepDefinitions
 {
@@ -103,6 +93,12 @@ namespace Tests.StepDefinitions
         public void ThenTheUserShouldSeeTheMessage(string expectedMessage)
         {
             _resultMessage.Should().Be(expectedMessage);
+        }
+
+        [Then("the product list should be empty")]
+        public void ThenTheProductListShouldBeEmpty()
+        {
+            Assert.IsEmpty(_productList, "The product list is not empty.");
         }
 
         private void ValidateForm()

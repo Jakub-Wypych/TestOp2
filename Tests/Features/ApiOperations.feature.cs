@@ -195,7 +195,7 @@ namespace Tests.Features
                         "ptop Pro\", \"Price\": 1200)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
-    testRunner.Then("the response should have a status code 204 No Content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the response to the PUT request should have a status code 204 No Content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 19
     testRunner.And("the product \"Laptop\" should be updated to \"Laptop Pro\" with a new price of 1200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -238,7 +238,7 @@ namespace Tests.Features
     testRunner.When("a DELETE request is made to the endpoint `api/products/3`", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 24
-    testRunner.Then("the response should have a status code 204 No Content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the response to the DELETE request should have a status code 204 No Content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 25
     testRunner.And("the product with ID 3 should be deleted from the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

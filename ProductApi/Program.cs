@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using ProductApi;
 
+namespace ProductApi;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -10,14 +12,24 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-
+        // Poprawnie konfigurujemy DbContext
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-        //builder.Services.AddDbContext<AppDbContext>(options =>
-        //    options.UseSqlite("DataSource=:memory:"));
-        builder.Services.AddDbContext<AppDbContext>(options =>
-           options.UseSqlite("Data Source=products.db"));
 
+        // Opcjonalnie: Wersja z hardcodowanym connection stringiem (np. dla testów)
+        // builder.Services.AddDbContext<AppDbContext>(options =>
+        //    options.UseSqlite("Data Source=products.db"));
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowBlazorApp",
+                policy =>
+                {
+                    policy.WithOrigins("https://localhost:7086")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+        });
 
         builder.Services.AddControllers();
 
@@ -29,7 +41,7 @@ public class Program
             app.UseSwaggerUI();
         }
 
-
+        app.UseCors("AllowBlazorApp");
         app.MapControllers();
 
         app.Run();

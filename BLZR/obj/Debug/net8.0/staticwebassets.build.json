@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i1tG5uy8inR5C58OjViJpHkyS3FXEOz9oTipAgfoy7Y=",
+  "Hash": "hK+CHl6YJYyAFE/Pr2Z7BRjUFH+4MU+wA1EyXgZK+TQ=",
   "Source": "BLZR",
   "BasePath": "/",
   "Mode": "Root",
@@ -585,6 +585,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\obj\\Debug\\net8.0\\webcil\\Microsoft.Extensions.FileSystemGlobbing.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Http.wasm",
+      "SourceId": "BLZR",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Http.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\obj\\Debug\\net8.0\\webcil\\Microsoft.Extensions.Http.wasm"
     },
     {
       "Identity": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.wasm",
@@ -6798,6 +6817,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Configuration.Json.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\obj\\Debug\\net8.0\\compressed\\q0ux3had3d.gz",
+      "SourceId": "BLZR",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Http.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Http.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Http.wasm"
     },
     {
       "Identity": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\BLZR\\obj\\Debug\\net8.0\\compressed\\q45cxkf6cu.gz",

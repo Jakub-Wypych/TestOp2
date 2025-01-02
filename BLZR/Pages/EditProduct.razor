@@ -1,7 +1,7 @@
 ﻿@page "/edit-product/{id:int}"
 @using ProductApp
 @using ProductApp.Models
-@inject ProductService ProductService
+@inject IProductService ProductService
 
 <h1>Edit Product</h1>
 
@@ -74,13 +74,13 @@ else
     private bool invalidSubmit = false;
     private bool isValidSubmit = false;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        productToEdit = ProductService.GetProducts().FirstOrDefault(p => p.Id == Id);
+        var products = await ProductService.GetProducts();
+        productToEdit = products.FirstOrDefault(p => p.Id == Id);
 
         if (productToEdit == null)
         {
-            // Możesz obsłużyć brak produktu, np. przekierować na inną stronę
         }
     }
 
@@ -95,6 +95,7 @@ else
         }
 
         isValidSubmit = true;
-        ProductService.EditProduct(productToEdit);
+
+        await ProductService.EditProduct(productToEdit);
     }
 }
