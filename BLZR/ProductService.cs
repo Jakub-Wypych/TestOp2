@@ -51,5 +51,30 @@ namespace ProductApp.Services
             var response = await _httpClient.DeleteAsync($"{BaseUrl}/{id}");
             response.EnsureSuccessStatusCode();
         }
+
+        public Task<ServiceResponse<IEnumerable<Product>>> GetProductsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResponse<Product>> GetProductAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResponse<bool>> AddProductAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResponse<bool>> EditProductAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResponse<bool>> DeleteProductAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

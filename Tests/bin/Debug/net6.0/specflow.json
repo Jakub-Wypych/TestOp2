@@ -1,0 +1,16 @@
+﻿{
+  "bindingCulture": { "language": "pl-PL" },
+  "plugins": [
+    {
+      "name": "SpecFlow.Plugins.NUnit",
+      "parameters": {}
+    },
+    {
+      "name": "SpecFlow.Plugins.Reporters",
+      "parameters": {
+        "html": "true",
+        "json": "true"
+      }
+    }
+  ]
+}
