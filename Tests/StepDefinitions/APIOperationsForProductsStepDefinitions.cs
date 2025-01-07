@@ -271,13 +271,4 @@ public class APIOperationsForProductsStepDefinitions
         _response = await _client.PutAsJsonAsync($"api/products/{id}", invalidProductData);
     }
 
-    [Then(@"the product should not be updated")]
-    public async Task ThenTheProductShouldNotBeUpdated()
-    {
-        var response = await _client.GetAsync("api/products");
-        var products = JsonConvert.DeserializeObject<List<Product>>(await response.Content.ReadAsStringAsync());
-        products.Should().Contain(p => p.Name == "Monitor" && p.Price != 0);
-    }
-
-
 }

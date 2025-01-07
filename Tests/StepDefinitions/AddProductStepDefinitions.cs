@@ -1,138 +1,106 @@
-using BLZR.Pages;
-using NUnit.Framework;
+using System;
+using TechTalk.SpecFlow;
+using Moq;
 using ProductApp.Models;
+using ProductApp.Services;
+using NUnit.Framework;
+using System.Threading.Tasks;
+using BLZR;
 
 namespace Tests.StepDefinitions
 {
     [Binding]
     public class AddProductStepDefinitions
     {
-        private Dictionary<string, object> _formData;
-        private string _resultMessage;
-        private List<Product> _productList;
+        private readonly Mock<IProductService> _mockProductService;
+        private ServiceResponse<bool> _response;
+        private Product _newProduct;
+        private Product _existingProduct;
 
         public AddProductStepDefinitions()
         {
-            _formData = new Dictionary<string, object>();
-            _resultMessage = string.Empty;
-            _productList = new List<Product>();
-        }
+            _mockProductService = new Mock<IProductService>();
 
-        [Given("the user is on the \"Add Product\" page")]
-        public void GivenTheUserIsOnTheAddProductPage()
-        {
-            // Simulate navigating to the Add Product page
-            _formData.Clear();
-            _resultMessage = string.Empty;
-        }
-
-        [When(@"the user fills in the form with valid data \(""Name"": ""(.*)"", ""Date"": ""(.*)"", ""Price"": (.*), ""Category"": ""(.*)"", ""Quantity"": (.*)\)")]
-        public void WhenTheUserFillsInTheFormWithValidData(string name, string date, decimal price, string category, int quantity)
-        {
-            _formData["Name"] = name;
-            _formData["Date"] = DateTime.Parse(date);
-            _formData["Price"] = price;
-            _formData["Category"] = category;
-            _formData["Quantity"] = quantity;
-        }
-
-        [When("the user submits the form with missing \"Name\" field")]
-        public void WhenTheUserSubmitsTheFormWithMissingNameField()
-        {
-            _formData["Name"] = null;
-            ValidateForm();
-        }
-
-        [When("the user submits the form with a negative \"Price\" \\((-?\\d+)\\)")]
-        public void WhenTheUserSubmitsTheFormWithANegativePrice(decimal price)
-        {
-            _formData["Price"] = price;
-            ValidateForm();
-        }
-
-        [When("the user submits the form with a negative \"Quantity\" \\((-?\\d+)\\)")]
-        public void WhenTheUserSubmitsTheFormWithANegativeQuantity(int quantity)
-        {
-            _formData["Quantity"] = quantity;
-            ValidateForm();
-        }
-
-        [When("the user submits the form with an empty \"Price\" field")]
-        public void WhenTheUserSubmitsTheFormWithAnEmptyPriceField()
-        {
-            _formData["Price"] = null;
-            ValidateForm();
-        }
-
-        [When("clicks the \"Add Product\" button")]
-        public void WhenClicksTheAddProductButton()
-        {
-            ValidateForm();
-        }
-
-        [Then("the product \"(.*)\" with price (.*) should be added to the list of products")]
-        public void ThenTheProductShouldBeAddedToTheListOfProducts(string name, decimal price)
-        {
-            _productList.Should().Contain(p => p.Name == name && p.Price == price);
-        }
-
-        [Then("the form should be cleared and a success message should appear")]
-        public void ThenTheFormShouldBeClearedAndASuccessMessageShouldAppear()
-        {
-            _formData.Should().BeEmpty();
-            _resultMessage.Should().Be("Product added successfully");
-        }
-
-        [Then("the form should not be submitted")]
-        public void ThenTheFormShouldNotBeSubmitted()
-        {
-            _productList.Should().BeEmpty();
-        }
-
-        [Then("the user should see the message \"(.*)\"")]
-        public void ThenTheUserShouldSeeTheMessage(string expectedMessage)
-        {
-            _resultMessage.Should().Be(expectedMessage);
-        }
-
-        [Then("the product list should be empty")]
-        public void ThenTheProductListShouldBeEmpty()
-        {
-            Assert.IsEmpty(_productList, "The product list is not empty.");
-        }
-
-        private void ValidateForm()
-        {
-            if (_formData.TryGetValue("Name", out var name) && string.IsNullOrEmpty(name?.ToString()))
+            _existingProduct = new Product
             {
-                _resultMessage = "Name is required";
-                return;
-            }
-
-            if (_formData.TryGetValue("Price", out var price) && (price == null || Convert.ToDecimal(price) <= 0))
-            {
-                _resultMessage = price == null ? "Price is required" : "Price must be greater than 0";
-                return;
-            }
-
-            if (_formData.TryGetValue("Quantity", out var quantity) && Convert.ToInt32(quantity) < 0)
-            {
-                _resultMessage = "Quantity cannot be negative";
-                return;
-            }
-
-            var product = new Product
-            {
-                Name = _formData["Name"].ToString(),
-                Date = (DateTime)_formData["Date"],
-                Price = (decimal)_formData["Price"],
-                Category = _formData["Category"].ToString(),
-                Quantity = (int)_formData["Quantity"]
+                Id = 1,
+                Name = "Smartphone",
+                Price = 500,
+                Quantity = 10,
+                Category = "Electronics",
+                Date = DateTime.Now
             };
 
-            _productList.Add(product);
-            _formData.Clear();
-            _resultMessage = "Product added successfully";
+            _mockProductService.Setup(service => service.AddProductAsync(It.IsAny<Product>()))
+                .ReturnsAsync((Product product) =>
+                {
+                    if (string.IsNullOrWhiteSpace(product.Name))
+                        return new ServiceResponse<bool> { Success = false, Message = "Name is required" };
+
+                    if (product.Price <= 0)
+                        return new ServiceResponse<bool> { Success = false, Message = "Price must be greater than 0" };
+
+                    if (product.Quantity < 0)
+                        return new ServiceResponse<bool> { Success = false, Message = "Quantity cannot be negative" };
+
+                    return new ServiceResponse<bool> { Success = true, Message = $"Product {product.Name} with price {product.Price} added successfully" };
+                });
+        }
+
+        [BeforeScenario]
+        public void SetupNewProduct()
+        {
+            _newProduct = new Product();
+            _newProduct.Name = "Product";
+            _newProduct.Date = DateTime.Now;
+            _newProduct.Price = 1;
+            _newProduct.Quantity = 1;
+        }
+
+
+        [When(@"clicks the Add Product button")]
+        public async Task WhenClicksTheButton()
+        {
+            _response = await _mockProductService.Object.AddProductAsync(_newProduct);
+        }
+
+        [Then(@"the product ""([^""]*)"" with price (.*) should be added to the list of products")]
+        public void ThenTheProductWithPriceShouldBeAddedToTheListOfProducts(string productName, decimal price)
+        {
+            Assert.IsTrue(_response.Success);
+            Assert.AreEqual($"Product {productName} with price {price} added successfully", _response.Message);
+        }
+
+
+        [When(@"user submits the form with the Name field missing")]
+        public void WhenUserSubmitsTheFormWithTheFieldMissing()
+        {
+            _newProduct.Name = string.Empty;
+        }
+
+        [Then(@"the product should not be added")]
+        public void ThenTheProductShouldNotBeAdded()
+        {
+            Assert.IsFalse(_response.Success);
+        }
+
+        [Then(@"the user should see the message ""([^""]*)""")]
+        public void ThenTheUserShouldSeeTheMessage(string expectedMessage)
+        {
+            Assert.AreEqual(expectedMessage, _response.Message);
+        }
+
+        [When(@"user submits the form with a negative ""([^""]*)"" \((.*)\)")]
+        public void WhenUserSubmitsTheFormWithANegative(string field, int value)
+        {
+            if (field == "Price")
+            {
+                _newProduct.Price = value;
+            }
+            else if (field == "Quantity")
+            {
+                _newProduct.Quantity = value;
+            }
         }
     }
 }

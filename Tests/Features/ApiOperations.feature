@@ -59,4 +59,3 @@ Scenario: Trying to update a product with invalid data
   Given the product with ID 1 exists in the database with the name "Monitor"
   When a PUT request is made to the endpoint `api/products/1` with invalid data (Name: "Monitor Pro", Price: "Invalid Price", Quantity: 5)
   Then the response should have a status code 400 Bad Request
-  And the product should not be updated

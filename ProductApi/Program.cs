@@ -17,8 +17,8 @@ public class Program
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         // Opcjonalnie: Wersja z hardcodowanym connection stringiem (np. dla testów)
-        // builder.Services.AddDbContext<AppDbContext>(options =>
-        //    options.UseSqlite("Data Source=products.db"));
+        //builder.Services.AddDbContext<AppDbContext>(options =>
+        //   options.UseSqlite("Data Source=products.db"));
 
         builder.Services.AddCors(options =>
         {

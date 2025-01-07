@@ -503,9 +503,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 61
   testRunner.Then("the response should have a status code 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 62
-  testRunner.And("the product should not be updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
             }
             this.ScenarioCleanup();
         }

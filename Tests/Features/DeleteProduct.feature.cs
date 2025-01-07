@@ -74,12 +74,12 @@ namespace Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Deleting an existing product")]
-        public virtual void DeletingAnExistingProduct()
+        [NUnit.Framework.DescriptionAttribute("Successfully deleting an existing product")]
+        public virtual void SuccessfullyDeletingAnExistingProduct()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting an existing product", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully deleting an existing product", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 3
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,13 +101,13 @@ namespace Tests.Features
             {
                 this.ScenarioStart();
 #line 4
-    testRunner.Given("the user sees a list of products, including the product \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the product \"Smartphone\" exists in the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
-    testRunner.When("the user clicks the \"Delete\" button next to \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the user clicks the Delete button next to the product \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 6
-    testRunner.Then("the product \"Smartphone\" should be removed from the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the service should successfully remove the product \"Smartphone\" from the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 7
     testRunner.And("a success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -117,12 +117,12 @@ namespace Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Deleting multiple products individually")]
-        public virtual void DeletingMultipleProductsIndividually()
+        [NUnit.Framework.DescriptionAttribute("Successfully deleting multiple products individually")]
+        public virtual void SuccessfullyDeletingMultipleProductsIndividually()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting multiple products individually", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully deleting multiple products individually", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -144,32 +144,31 @@ namespace Tests.Features
             {
                 this.ScenarioStart();
 #line 10
-    testRunner.Given("the user sees a list of products, including the products \"Smartphone\", \"Tablet\", " +
-                        "and \"Laptop\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the products \"Smartphone\", \"Tablet\", and \"Laptop\" exist in the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
-    testRunner.When("the user clicks the \"Delete\" button next to \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the user clicks the Delete button next to the product \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
-    testRunner.Then("the product \"Smartphone\" should be removed from the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the service should successfully remove the product \"Smartphone\" from the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
     testRunner.And("a success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
-    testRunner.When("the user clicks the \"Delete\" button next to \"Tablet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the user clicks the Delete button next to the product \"Tablet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
-    testRunner.Then("the product \"Tablet\" should be removed from the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the service should successfully remove the product \"Tablet\" from the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 17
     testRunner.And("a success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
-    testRunner.When("the user clicks the \"Delete\" button next to \"Laptop\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the user clicks the Delete button next to the product \"Laptop\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
-    testRunner.Then("the product \"Laptop\" should be removed from the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the service should successfully remove the product \"Laptop\" from the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 21
     testRunner.And("a success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -179,12 +178,12 @@ namespace Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Deleting the last product results in an empty list")]
-        public virtual void DeletingTheLastProductResultsInAnEmptyList()
+        [NUnit.Framework.DescriptionAttribute("Attempting to delete a non-existing product")]
+        public virtual void AttemptingToDeleteANon_ExistingProduct()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting the last product results in an empty list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempting to delete a non-existing product", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 23
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -206,19 +205,16 @@ namespace Tests.Features
             {
                 this.ScenarioStart();
 #line 24
-    testRunner.Given("the user sees a list of products, including the product \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the product with ID -1 does not exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 25
-    testRunner.When("the user clicks the \"Delete\" button next to \"Smartphone\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the user attempts to delete the product with ID -1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 26
-    testRunner.Then("the product \"Smartphone\" should be removed from the list of products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("service should return the message \"Product does not exist\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 27
-    testRunner.And("the product list should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 28
-    testRunner.And("a success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("no product should be removed from the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
