@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Product, ProductApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ProductApp.Models.Product, BLZR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,21 +29,11 @@
     "Parameters": [
       {
         "Name": "product",
-        "Type": "Product",
+        "Type": "ProductApp.Models.Product",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Product",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ProductApi.Controllers.ProductsController",
@@ -61,7 +51,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Product",
+        "Type": "ProductApp.Models.Product",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -86,7 +76,7 @@
       },
       {
         "Name": "product",
-        "Type": "Product",
+        "Type": "ProductApp.Models.Product",
         "IsRequired": true
       }
     ],

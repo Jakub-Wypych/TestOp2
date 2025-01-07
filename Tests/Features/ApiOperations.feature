@@ -29,3 +29,33 @@
     When a DELETE request is made to the endpoint `api/products/10`
     Then the response should have a status code 404 Not Found
     And the product with ID 10 should not be deleted
+
+Scenario: Trying to edit a non-existing product
+  Given the product with ID 100 does not exist in the database
+  When a PUT request is made to the endpoint `api/products/100` with new data ("Name": "Non-existent", "Price": 1500)
+  Then the response should have a status code 404 Not Found
+  And the product should not be modified
+
+Scenario: Trying to retrieve a non-existing product
+  Given the product with ID 100 does not exist in the database
+  When a GET request is made to the endpoint `api/products/100`
+  Then the response should have a status code 404 Not Found
+  And the response body should contain an error message
+
+Scenario: Retrieving products when the database is empty
+  Given the database is empty
+  When a GET request is made to the endpoint `api/products`
+  Then the response should contain an empty list
+
+Scenario: Trying to delete a product that was already deleted
+  Given the product with ID 3 exists in the database
+  When a DELETE request is made to the endpoint `api/products/3`
+  Then the response should have a status code 204 No Content
+  And the product with ID 3 should be deleted from the database
+  When a DELETE request is made to the endpoint `api/products/3` again
+  Then the response should have a status code 404 Not Found
+
+Scenario: Trying to update a product with invalid data
+  Given the product with ID 1 exists in the database with the name "Monitor"
+  When a PUT request is made to the endpoint `api/products/1` with invalid data (Name: "Monitor Pro", Price: "Invalid Price", Quantity: 5)
+  Then the response should have a status code 400 Bad Request

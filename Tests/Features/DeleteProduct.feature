@@ -1,28 +1,27 @@
 ﻿Feature: Delete Product
 
-  Scenario: Deleting an existing product
-    Given the user sees a list of products, including the product "Smartphone"
-    When the user clicks the "Delete" button next to "Smartphone"
-    Then the product "Smartphone" should be removed from the list of products
+  Scenario: Successfully deleting an existing product
+    Given the product "Smartphone" exists in the list of products
+    When the user clicks the Delete button next to the product "Smartphone"
+    Then the service should successfully remove the product "Smartphone" from the list
     And a success message should appear
 
-  Scenario: Deleting multiple products individually
-    Given the user sees a list of products, including the products "Smartphone", "Tablet", and "Laptop"
-    When the user clicks the "Delete" button next to "Smartphone"
-    Then the product "Smartphone" should be removed from the list of products
+  Scenario: Successfully deleting multiple products individually
+    Given the products "Smartphone", "Tablet", and "Laptop" exist in the list of products
+    When the user clicks the Delete button next to the product "Smartphone"
+    Then the service should successfully remove the product "Smartphone" from the list
     And a success message should appear
 
-    When the user clicks the "Delete" button next to "Tablet"
-    Then the product "Tablet" should be removed from the list of products
+    When the user clicks the Delete button next to the product "Tablet"
+    Then the service should successfully remove the product "Tablet" from the list
     And a success message should appear
 
-    When the user clicks the "Delete" button next to "Laptop"
-    Then the product "Laptop" should be removed from the list of products
+    When the user clicks the Delete button next to the product "Laptop"
+    Then the service should successfully remove the product "Laptop" from the list
     And a success message should appear
 
-  Scenario: Deleting the last product results in an empty list
-    Given the user sees a list of products, including the product "Smartphone"
-    When the user clicks the "Delete" button next to "Smartphone"
-    Then the product "Smartphone" should be removed from the list of products
-    And the product list should be empty
-    And a success message should appear
+  Scenario: Attempting to delete a non-existing product
+    Given the product with ID -1 does not exist
+    When the user attempts to delete the product with ID -1
+    Then service should return the message "Product does not exist"
+    And no product should be removed from the list

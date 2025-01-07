@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductApp.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProductApi.Controllers
 {
@@ -36,17 +37,25 @@ namespace ProductApi.Controllers
             return product;
         }
 
-        // POST: api/products
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<IActionResult> PostProduct(Product product)
         {
+            var validationResults = new List<ValidationResult>();
+            var context = new ValidationContext(product, serviceProvider: null, items: null);
+            bool isValid = Validator.TryValidateObject(product, context, validationResults, true);
+
+            if (!isValid)
+            {
+                return BadRequest(validationResults);
+            }
+
+            // Jeśli dane są poprawne, dodaj produkt do bazy
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
-        // PUT: api/products/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -55,10 +64,30 @@ namespace ProductApi.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(product).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (existingProduct == null)
+            {
+                return NotFound(); // Return 404 if the product doesn't exist
+            }
 
-            return NoContent();
+            // Update the product details
+            existingProduct.Name = product.Name;
+            existingProduct.Price = product.Price;
+            existingProduct.Date = product.Date;
+            existingProduct.Category = product.Category;
+            existingProduct.Quantity = product.Quantity;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                // Handle concurrency exception
+                return StatusCode(StatusCodes.Status500InternalServerError, "A concurrency issue occurred while updating the product.");
+            }
+
+            return NoContent(); // Return 204 No Content on successful update
         }
 
         // DELETE: api/products/5
@@ -76,5 +105,7 @@ namespace ProductApi.Controllers
 
             return NoContent();
         }
+
+
     }
 }

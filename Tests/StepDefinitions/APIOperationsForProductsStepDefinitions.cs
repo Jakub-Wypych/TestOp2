@@ -5,7 +5,6 @@ using System.Net.Http.Json;
 using System.Net;
 using Microsoft.Extensions.DependencyInjection;
 using ProductApi;
-using Microsoft.EntityFrameworkCore;
 
 [Binding]
 public class APIOperationsForProductsStepDefinitions
@@ -205,4 +204,71 @@ public class APIOperationsForProductsStepDefinitions
 
         products.Should().NotContain(p => p.Id == id);
     }
+
+    [Then(@"the response should have a status code 400 Bad Request")]
+    public void ThenTheResponseShouldHaveAStatusCode400BadRequest()
+    {
+        _response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Then(@"the product should not be added to the database")]
+    public async Task ThenTheProductShouldNotBeAddedToTheDatabase()
+    {
+        var response = await _client.GetAsync("api/products");
+        var products = JsonConvert.DeserializeObject<List<Product>>(await response.Content.ReadAsStringAsync());
+        products.Should().NotContain(p => p.Name == "Monitor");
+    }
+
+    [Then(@"the product should not be modified")]
+    public async Task ThenTheProductShouldNotBeModified()
+    {
+        var response = await _client.GetAsync("api/products");
+        var products = JsonConvert.DeserializeObject<List<Product>>(await response.Content.ReadAsStringAsync());
+        products.Should().NotContain(p => p.Name == "Non-existent");
+    }
+
+    // Scenario: Trying to retrieve a non-existing product
+    [When(@"a GET request is made to the endpoint `api/products/(\d+)`")]
+    public async Task WhenAGETRequestIsMadeToTheEndpointApiProductsWithNonExistingID(int id)
+    {
+        _response = await _client.GetAsync($"api/products/{id}");
+    }
+
+    [Then(@"the response body should contain an error message")]
+    public async Task ThenTheResponseBodyShouldContainAnErrorMessage()
+    {
+        var responseContent = await _response.Content.ReadAsStringAsync();
+        responseContent.IndexOf("not found", StringComparison.OrdinalIgnoreCase).Should().BeGreaterThan(-1);
+    }
+
+    // Scenario: Retrieving products when the database is empty
+    [Given(@"the database is empty")]
+    public void GivenTheDatabaseIsEmpty()
+    {
+        // Assumes database is already empty or will be reset for testing
+    }
+
+    [Then(@"the response should contain an empty list")]
+    public async Task ThenTheResponseShouldContainAnEmptyList()
+    {
+        var responseContent = await _response.Content.ReadAsStringAsync();
+        var products = JsonConvert.DeserializeObject<List<Product>>(responseContent);
+        products.Should().BeEmpty();
+    }
+
+    // Scenario: Trying to delete a product that was already deleted
+    [When(@"a DELETE request is made to the endpoint `api/products/(\d+)` again")]
+    public async Task WhenADELETERequestIsMadeToTheEndpointApiProductsAgain(int id)
+    {
+        _response = await _client.DeleteAsync($"api/products/{id}");
+    }
+
+    [When(@"a PUT request is made to the endpoint `api/products/(\d+)` with invalid data \(Name: ""([^""]+)"", Price: ""([^""]+)"", Quantity: (\d+)\)")]
+    public async Task WhenAPUTRequestIsMadeToTheEndpointApiProductsWithInvalidData(int id, string name, string invalidPrice, int quantity)
+    {
+        // Attempt to update product with invalid price (string instead of decimal)
+        var invalidProductData = new { Name = name, Price = invalidPrice, Quantity = quantity };
+        _response = await _client.PutAsJsonAsync($"api/products/{id}", invalidProductData);
+    }
+
 }
