@@ -5,6 +5,7 @@ using System.Net.Http.Json;
 using System.Net;
 using Microsoft.Extensions.DependencyInjection;
 using ProductApi;
+using Tests.StepDefinitions;
 
 [Binding]
 public class APIOperationsForProductsStepDefinitions
@@ -13,21 +14,19 @@ public class APIOperationsForProductsStepDefinitions
     private HttpResponseMessage _response;
     private List<Product> _products;
 
-    public APIOperationsForProductsStepDefinitions(WebApplicationFactory<ProductApi.Program> factory)
+    public APIOperationsForProductsStepDefinitions(WebApplicationFactory<ProductApi.TestProgram> factory)
     {
         _client = factory.CreateClient();
         _products = new List<Product>();
 
-        // Using an in-memory database for testing
         var scope = factory.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-        // Switch to in-memory database for testing
-        dbContext.Database.EnsureDeleted(); // Ensure the in-memory database is fresh
-        dbContext.Database.EnsureCreated(); // Create a fresh in-memory database
+        dbContext.Database.EnsureDeleted();
+        dbContext.Database.EnsureCreated();
     }
 
-    // Scenario 1: Retrieving all products from the API
+
     [Given(@"there are products with IDs (.*), (.*), (.*) in the database")]
     public async Task GivenThereAreProductsWithIDsInTheDatabase(int id1, int id2, int id3)
     {
@@ -80,7 +79,6 @@ public class APIOperationsForProductsStepDefinitions
         }
     }
 
-    // Scenario 2: Adding a product via the API
     [Given(@"the product ""([^""]*)"" does not exist in the database")]
     public async Task GivenTheProductDoesNotExistInTheDatabase(string name)
     {
@@ -93,7 +91,7 @@ public class APIOperationsForProductsStepDefinitions
     [When(@"a POST request is made to the endpoint `api/products` with data ""([^""]*)"": ""([^""]*)"", ""([^""]*)"": (.*)")]
     public async Task WhenAPOSTRequestIsMadeToTheEndpointApiProductsWithData(string key1, string name, string key2, decimal price)
     {
-        var newProduct = new Product { Name = name, Price = price, Quantity = 5 }; // Assuming Quantity is constant for this test
+        var newProduct = new Product { Name = name, Price = price, Quantity = 5 };
         _response = await _client.PostAsJsonAsync("api/products", newProduct);
     }
 
@@ -112,7 +110,6 @@ public class APIOperationsForProductsStepDefinitions
         products.Should().Contain(p => p.Name == name);
     }
 
-    // Scenario 3: Editing a product via the API
     [Given(@"the product with ID (.*) exists in the database with the name ""([^""]*)""")]
     public async Task GivenTheProductWithIDExistsInTheDatabaseWithTheName(int id, string name)
     {
@@ -153,7 +150,6 @@ public class APIOperationsForProductsStepDefinitions
         updatedProduct.Should().NotBeNull();
     }
 
-    // Scenario 4: Deleting a product via the API
     [Given(@"the product with ID (.*) exists in the database")]
     public async Task GivenTheProductWithIDExistsInTheDatabase(int id)
     {
@@ -183,7 +179,6 @@ public class APIOperationsForProductsStepDefinitions
         products.Should().NotContain(p => p.Id == id);
     }
 
-    // Scenario 5: Handling errors when deleting a non-existing product
     [Given(@"the product with ID (.*) does not exist in the database")]
     public void GivenTheProductWithIDDoesNotExistInTheDatabase(int id)
     {
@@ -227,7 +222,6 @@ public class APIOperationsForProductsStepDefinitions
         products.Should().NotContain(p => p.Name == "Non-existent");
     }
 
-    // Scenario: Trying to retrieve a non-existing product
     [When(@"a GET request is made to the endpoint `api/products/(\d+)`")]
     public async Task WhenAGETRequestIsMadeToTheEndpointApiProductsWithNonExistingID(int id)
     {
@@ -241,7 +235,6 @@ public class APIOperationsForProductsStepDefinitions
         responseContent.IndexOf("not found", StringComparison.OrdinalIgnoreCase).Should().BeGreaterThan(-1);
     }
 
-    // Scenario: Retrieving products when the database is empty
     [Given(@"the database is empty")]
     public void GivenTheDatabaseIsEmpty()
     {
@@ -256,7 +249,6 @@ public class APIOperationsForProductsStepDefinitions
         products.Should().BeEmpty();
     }
 
-    // Scenario: Trying to delete a product that was already deleted
     [When(@"a DELETE request is made to the endpoint `api/products/(\d+)` again")]
     public async Task WhenADELETERequestIsMadeToTheEndpointApiProductsAgain(int id)
     {
@@ -266,7 +258,6 @@ public class APIOperationsForProductsStepDefinitions
     [When(@"a PUT request is made to the endpoint `api/products/(\d+)` with invalid data \(Name: ""([^""]+)"", Price: ""([^""]+)"", Quantity: (\d+)\)")]
     public async Task WhenAPUTRequestIsMadeToTheEndpointApiProductsWithInvalidData(int id, string name, string invalidPrice, int quantity)
     {
-        // Attempt to update product with invalid price (string instead of decimal)
         var invalidProductData = new { Name = name, Price = invalidPrice, Quantity = quantity };
         _response = await _client.PutAsJsonAsync($"api/products/{id}", invalidProductData);
     }

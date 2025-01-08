@@ -1,11 +1,11 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ProductApi;
 
 namespace ProductApi;
 
-public class Program
+public class TestProgram
 {
-    public static void Start(string[] args)
+    public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +14,6 @@ public class Program
 
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-        builder.Services.AddDbContext<AppDbContext>(options =>
-           options.UseSqlite("Data Source=products.db"));
 
         builder.Services.AddCors(options =>
         {

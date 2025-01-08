@@ -430,6 +430,7 @@ C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem
 C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.Data.Sqlite.dll
 C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\Ja\OneDrive - Politechnika Warszawska\Pulpit\Nowy folder (2)\Studia\Sem 5\TestOp2\Tests\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
