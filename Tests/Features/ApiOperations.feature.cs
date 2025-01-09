@@ -275,7 +275,7 @@ namespace Tests.Features
             {
                 this.ScenarioStart();
 #line 28
-    testRunner.Given("the product with ID 10 does not exist in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the database is empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 29
     testRunner.When("a DELETE request is made to the endpoint `api/products/10`", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -318,7 +318,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 34
-  testRunner.Given("the product with ID 100 does not exist in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.Given("the database is empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 35
   testRunner.When("a PUT request is made to the endpoint `api/products/100` with new data (\"Name\": \"" +
@@ -362,7 +362,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 40
-  testRunner.Given("the product with ID 100 does not exist in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.Given("the database is empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 41
   testRunner.When("a GET request is made to the endpoint `api/products/100`", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

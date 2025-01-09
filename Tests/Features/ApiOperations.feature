@@ -25,19 +25,19 @@
     And the product with ID 3 should be deleted from the database
 
    Scenario: Handling errors when deleting a non-existing product
-    Given the product with ID 10 does not exist in the database
+    Given the database is empty
     When a DELETE request is made to the endpoint `api/products/10`
     Then the response should have a status code 404 Not Found
     And the product with ID 10 should not be deleted
 
 Scenario: Trying to edit a non-existing product
-  Given the product with ID 100 does not exist in the database
+  Given the database is empty
   When a PUT request is made to the endpoint `api/products/100` with new data ("Name": "Non-existent", "Price": 1500)
   Then the response should have a status code 404 Not Found
   And the product should not be modified
 
 Scenario: Trying to retrieve a non-existing product
-  Given the product with ID 100 does not exist in the database
+  Given the database is empty
   When a GET request is made to the endpoint `api/products/100`
   Then the response should have a status code 404 Not Found
   And the response body should contain an error message

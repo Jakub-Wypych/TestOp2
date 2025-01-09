@@ -59,7 +59,7 @@ namespace Tests.StepDefinitions
         [When(@"the user clicks the Delete button next to the product ""([^""]*)""")]
         public async Task WhenTheUserClicksTheDeleteButtonNextToTheProduct(string productName)
         {
-            var productId = _existingProduct.Id; // Assuming we're deleting the existing product
+            var productId = _existingProduct.Id;
             _response = await _mockProductService.Object.DeleteProductAsync(productId);
         }
 
@@ -80,7 +80,6 @@ namespace Tests.StepDefinitions
         [Given(@"the products ""([^""]*)"", ""([^""]*)"", and ""([^""]*)"" exist in the list of products")]
         public void GivenTheProductsExistInTheListOfProducts(string product1, string product2, string product3)
         {
-            // Here we would mock the response to return multiple products
             _mockProductService.Setup(service => service.GetProductsAsync())
                 .ReturnsAsync(new ServiceResponse<IEnumerable<Product>>
                 {

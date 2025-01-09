@@ -59,9 +59,14 @@ else
 
     <button class="btn btn-primary" @onclick="OnSaveChangesClick">Save Changes</button>
 
-    @if (isValidSubmit)
+    @if (!string.IsNullOrEmpty(successMessage))
     {
-        <div class="alert alert-success mt-3">Changes saved successfully!</div>
+        <div class="alert alert-success mt-3">@successMessage</div>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger mt-3">@errorMessage</div>
     }
 }
 
@@ -72,15 +77,20 @@ else
     private Product? productToEdit;
 
     private bool invalidSubmit = false;
-    private bool isValidSubmit = false;
+    private string successMessage = string.Empty;
+    private string errorMessage = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
-        var products = await ProductService.GetProducts();
-        productToEdit = products.FirstOrDefault(p => p.Id == Id);
+        var response = await ProductService.GetProductAsync(Id);
 
-        if (productToEdit == null)
+        if (response.Success)
         {
+            productToEdit = response.Data;
+        }
+        else
+        {
+            errorMessage = response.Message;
         }
     }
 
@@ -94,8 +104,15 @@ else
             return;
         }
 
-        isValidSubmit = true;
+        var response = await ProductService.EditProductAsync(productToEdit);
 
-        await ProductService.EditProduct(productToEdit);
+        if (response.Success)
+        {
+            successMessage = response.Message;
+        }
+        else
+        {
+            errorMessage = response.Message;
+        }
     }
 }

@@ -1,78 +1,131 @@
-﻿ @page "/products"
- @using ProductApp
- @using ProductApp.Models
- @inject IProductService ProductService
+﻿@page "/products"
+@using ProductApp
+@using ProductApp.Models
+@inject IProductService ProductService
 
- <h3>Product List</h3>
+<h3>Product List</h3>
 
- <table class="table">
-     <thead>
-         <tr>
-             <th>Name</th>
-             <th>Date</th>
-             <th>Price</th>
-             <th>Category</th>
-             <th>Stock (Quantity)</th>
-             <th>Actions</th>
-         </tr>
-     </thead>
-     <tbody>
-         @if (products != null)
-         {
-             @foreach (var product in products)
-             {
-                 <tr>
-                     <td>@product.Name</td>
-                     <td>@product.Date.ToString("MM-dd-yyyy")</td>
-                     <td>@product.Price.ToString("C")</td>
-                     <td>@product.Category</td>
-                     <td>@product.Quantity</td>
-                     <td>
-                         <button class="btn btn-primary" @onclick="() => NavigateToEdit(product.Id)">Edit</button>
-                         <button class="btn btn-danger" @onclick="() => DeleteProduct(product)">Delete</button>
-                     </td>
-                 </tr>
-             }
-         }
-         else
-         {
-             <tr><td colspan="6">Loading...</td></tr>
-         }
-     </tbody>
- </table>
+@if (loading)
+{
+    <div>Loading products...</div>
+}
+else if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+else if (products != null && products.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Stock (Quantity)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Date.ToString("MM-dd-yyyy")</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>@product.Category</td>
+                    <td>@product.Quantity</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => NavigateToEdit(product.Id)">Edit</button>
+                        <button class="btn btn-danger" @onclick="() => ConfirmDelete(product)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>No products available.</div>
+}
 
- @code {
-     private List<Product> products;
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success">@successMessage</div>
+}
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
-     protected override async Task OnInitializedAsync()
-     {
-         products = (await ProductService.GetProducts()).ToList(); 
-     }
+@code {
+    private List<Product>? products;
+    private string? errorMessage;
+    private string successMessage = string.Empty;
+    private bool loading = true;
 
-     [Inject]
-     private NavigationManager NavigationManager { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var response = await ProductService.GetProductsAsync();
+            if (response.Success)
+            {
+                products = response.Data.ToList();
+            }
+            else
+            {
+                errorMessage = response.Message;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred while loading products: {ex.Message}";
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
 
-     private void NavigateToEdit(int productId)
-     {
-         NavigationManager.NavigateTo($"/edit-product/{productId}");
-     }
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
-     private async Task DeleteProduct(Product product)
-     {
-         await ProductService.DeleteProduct(product.Id);
-         StateHasChanged(); 
-     }
+    private void NavigateToEdit(int productId)
+    {
+        NavigationManager.NavigateTo($"/edit-product/{productId}");
+    }
 
-     private void UpdatePrice(Product product, string? value)
-     {
-         if (string.IsNullOrWhiteSpace(value))
-         {
-             product.Price = 0;
-         }
-         else if (decimal.TryParse(value, out var parsedValue))
-         {
-             product.Price = parsedValue;
-         }
-     }
- }
+    private async Task ConfirmDelete(Product product)
+    {
+        if (await JSRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to delete the product '{product.Name}'?"))
+        {
+            await DeleteProduct(product);
+        }
+    }
+
+    private async Task DeleteProduct(Product product)
+    {
+        try
+        {
+            var response = await ProductService.DeleteProductAsync(product.Id);
+            if (response.Success)
+            {
+                products?.Remove(product);
+                successMessage = response.Message;
+            }
+            else
+            {
+                errorMessage = response.Message;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred while deleting the product: {ex.Message}";
+        }
+    }
+
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; }
+}

@@ -13,9 +13,11 @@ public class APIOperationsForProductsStepDefinitions
     private readonly HttpClient _client;
     private HttpResponseMessage _response;
     private List<Product> _products;
+    private readonly WebApplicationFactory<TestProgram> _factory;
 
     public APIOperationsForProductsStepDefinitions(WebApplicationFactory<ProductApi.TestProgram> factory)
     {
+        _factory = factory;
         _client = factory.CreateClient();
         _products = new List<Product>();
 
@@ -179,12 +181,6 @@ public class APIOperationsForProductsStepDefinitions
         products.Should().NotContain(p => p.Id == id);
     }
 
-    [Given(@"the product with ID (.*) does not exist in the database")]
-    public void GivenTheProductWithIDDoesNotExistInTheDatabase(int id)
-    {
-        // No action needed; we assume a clean database or explicit deletion of the product
-    }
-
     [Then(@"the response should have a status code (.*) Not Found")]
     public void ThenTheResponseShouldHaveAStatusCodeNotFound(int statusCode)
     {
@@ -238,7 +234,12 @@ public class APIOperationsForProductsStepDefinitions
     [Given(@"the database is empty")]
     public void GivenTheDatabaseIsEmpty()
     {
-        // Assumes database is already empty or will be reset for testing
+        var scope = _factory.Services.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+        var productCount = dbContext.Products.Count();
+
+        productCount.Should().Be(0, "because the database should be empty for this test");
     }
 
     [Then(@"the response should contain an empty list")]

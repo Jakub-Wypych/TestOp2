@@ -20,62 +20,26 @@ namespace ProductApp.Services
             _httpClient = httpClient;
         }
 
-        // Get all products
-        public async Task<IEnumerable<Product>> GetProducts()
-        {
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<Product>>(BaseUrl);
-            return response;
-        }
-
-        // Get a specific product by ID
-        public async Task<Product> GetProduct(int id)
-        {
-            var response = await _httpClient.GetFromJsonAsync<Product>($"{BaseUrl}/{id}");
-            return response;
-        }
-
-        // Add a new product
-        public async Task AddProduct(Product product)
-        {
-            var response = await _httpClient.PostAsJsonAsync(BaseUrl, product);
-            response.EnsureSuccessStatusCode();
-        }
-
-        // Edit an existing product
-        public async Task EditProduct(Product product)
-        {
-            var response = await _httpClient.PutAsJsonAsync($"{BaseUrl}/{product.Id}", product);
-            response.EnsureSuccessStatusCode();
-        }
-
-        // Delete a product by ID
-        public async Task DeleteProduct(int id)
-        {
-            var response = await _httpClient.DeleteAsync($"{BaseUrl}/{id}");
-            response.EnsureSuccessStatusCode();
-        }
-
         public async Task<ServiceResponse<IEnumerable<Product>>> GetProductsAsync()
         {
             try
             {
-                // Make an HTTP GET request to the API endpoint
                 var response = await _httpClient.GetAsync(BaseUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // Deserialize the response body into ServiceResponse<IEnumerable<Product>>
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    var serviceResponse = JsonSerializer.Deserialize<ServiceResponse<IEnumerable<Product>>>(responseContent, new JsonSerializerOptions
+
+                    var products = JsonSerializer.Deserialize<IEnumerable<Product>>(responseContent, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
 
-                    return serviceResponse ?? new ServiceResponse<IEnumerable<Product>>
+                    return new ServiceResponse<IEnumerable<Product>>
                     {
-                        Data = null,
-                        Success = false,
-                        Message = "Empty response from server."
+                        Data = products ?? Enumerable.Empty<Product>(),
+                        Success = true,
+                        Message = "Products retrieved successfully."
                     };
                 }
 
@@ -88,7 +52,6 @@ namespace ProductApp.Services
             }
             catch (Exception ex)
             {
-                // Handle exceptions and return a failed response
                 return new ServiceResponse<IEnumerable<Product>>
                 {
                     Data = null,
@@ -98,46 +61,43 @@ namespace ProductApp.Services
             }
         }
 
+
         public async Task<ServiceResponse<Product>> GetProductAsync(int id)
         {
             try
             {
-                // Tworzymy adres URL dla zapytania GET
                 string url = $"{BaseUrl}/{id}";
-
-                // Wysyłamy zapytanie GET do API
                 var response = await _httpClient.GetAsync(url);
 
-                // Sprawdzamy, czy odpowiedź była pozytywna
                 if (response.IsSuccessStatusCode)
                 {
-                    // Jeśli odpowiedź jest pozytywna, deserializujemy dane produktu
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    var serviceResponse = JsonSerializer.Deserialize<ServiceResponse<Product>>(responseContent, new JsonSerializerOptions
+
+                    var product = JsonSerializer.Deserialize<Product>(responseContent, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
 
-                    // Jeśli odpowiedź jest poprawna, zwracamy wynik
-                    return serviceResponse ?? new ServiceResponse<Product>
+                    return new ServiceResponse<Product>
                     {
-                        Success = false,
-                        Message = "Empty response from server."
+                        Data = product,
+                        Success = product != null,
+                        Message = product != null ? "Product retrieved successfully." : "Product data is null."
                     };
                 }
 
-                // Jeśli serwer zwrócił błąd, zwrócimy odpowiednią wiadomość
                 return new ServiceResponse<Product>
                 {
+                    Data = null,
                     Success = false,
                     Message = $"Failed to retrieve product. Server returned status code: {response.StatusCode}"
                 };
             }
             catch (Exception ex)
             {
-                // Jeśli wystąpił błąd, zwracamy odpowiednią wiadomość
                 return new ServiceResponse<Product>
                 {
+                    Data = null,
                     Success = false,
                     Message = $"An error occurred: {ex.Message}"
                 };
@@ -159,7 +119,6 @@ namespace ProductApp.Services
 
             if (response.IsSuccessStatusCode)
             {
-                // Jeśli odpowiedź jest pozytywna, zwrócimy sukces
                 return new ServiceResponse<bool>
                 {
                     Success = true,
@@ -167,7 +126,6 @@ namespace ProductApp.Services
                 };
             }
 
-            // Jeśli wystąpił błąd, zwrócimy odpowiednią wiadomość
             return new ServiceResponse<bool>
             {
                 Success = false,
@@ -256,8 +214,6 @@ namespace ProductApp.Services
                 };
             }
 
-  
-
             return new ServiceResponse<bool>
             {
                 Success = true
@@ -268,23 +224,15 @@ namespace ProductApp.Services
         {
             try
             {
-                // Make an HTTP DELETE request to the API endpoint
                 var response = await _httpClient.DeleteAsync($"{BaseUrl}/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // Deserialize the response body into ServiceResponse<bool>
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    var serviceResponse = JsonSerializer.Deserialize<ServiceResponse<bool>>(responseContent, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-
-                    return serviceResponse ?? new ServiceResponse<bool>
+                    return new ServiceResponse<bool>
                     {
                         Data = false,
-                        Success = false,
-                        Message = "Empty response from server."
+                        Success = true,
+                        Message = "Product successfully deleted."
                     };
                 }
 
@@ -297,7 +245,6 @@ namespace ProductApp.Services
             }
             catch (Exception ex)
             {
-                // Handle exceptions and return a failed response
                 return new ServiceResponse<bool>
                 {
                     Data = false,

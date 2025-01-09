@@ -18,7 +18,7 @@
 <div class="mb-3">
     <label for="productDate" class="form-label">Product Date</label>
     <input type="date" id="productDate" class="form-control"
-           @bind="newProduct.Date"/>
+           @bind="newProduct.Date" />
 </div>
 
 <div class="mb-3">
@@ -51,39 +51,39 @@
     }
 </div>
 
-<button class="btn btn-primary" @onclick="OnAddNewProductClickt">Add Product</button>
+<button class="btn btn-primary" @onclick="OnAddNewProductClick">Add Product</button>
 
-@if (isValidSubmit)
+@if (!string.IsNullOrEmpty(successMessage))
 {
     <div class="alert alert-success mt-3" role="alert">
-        Product added successfully!
+        @successMessage
     </div>
 }
 
-@if (invalidSubmit && !isValidSubmit)
+@if (!string.IsNullOrEmpty(errorMessage))
 {
     <div class="alert alert-danger mt-3" role="alert">
-        Please fill all fields correctly.
+        @errorMessage
     </div>
 }
 
 @code {
     private Product newProduct = new Product();
     private bool invalidSubmit = false;
-    private bool isValidSubmit = false;
+    private string successMessage = string.Empty;
+    private string errorMessage = string.Empty;
 
     protected override void OnInitialized()
     {
         newProduct.Date = DateTime.Now.Date;
     }
 
-    private async Task OnAddNewProductClickt()
+    private async Task OnAddNewProductClick()
     {
-        // Reset validation state
         invalidSubmit = false;
-        isValidSubmit = false;
+        successMessage = string.Empty;
+        errorMessage = string.Empty;
 
-        // Validate fields
         if (string.IsNullOrWhiteSpace(newProduct.Name) ||
             newProduct.Price < 0 ||
             string.IsNullOrWhiteSpace(newProduct.Category) ||
@@ -93,16 +93,16 @@
             return;
         }
 
-        // Submit the form
-        isValidSubmit = true;
-        await AddNewProduct();
-    }
+        var response = await ProductService.AddProductAsync(newProduct);
 
-    private async Task AddNewProduct()
-    {
-        // await 
-        ProductService.AddProduct(newProduct);
-        newProduct = new Product();
-        newProduct.Date = DateTime.Now.Date;
+        if (response.Success)
+        {
+            successMessage = response.Message;
+            newProduct = new Product { Date = DateTime.Now.Date };
+        }
+        else
+        {
+            errorMessage = response.Message;
+        }
     }
 }
