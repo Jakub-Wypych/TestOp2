@@ -1,0 +1,72 @@
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Products" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Products" PRIMARY KEY AUTOINCREMENT,
+          "Name" TEXT NOT NULL,
+          "Date" TEXT NOT NULL,
+          "Price" decimal(18,2) NOT NULL DEFAULT '0.0',
+          "Category" TEXT NOT NULL,
+          "Quantity" INTEGER NOT NULL DEFAULT 1
+      );
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Products" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Products" PRIMARY KEY AUTOINCREMENT,
+          "Name" TEXT NOT NULL,
+          "Date" TEXT NOT NULL,
+          "Price" decimal(18,2) NOT NULL DEFAULT '0.0',
+          "Category" TEXT NOT NULL,
+          "Quantity" INTEGER NOT NULL DEFAULT 1
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 11), @p1='?' (DbType = DateTime), @p2='?' (Size = 10), @p3='?' (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Products" ("Category", "Date", "Name", "Price", "Quantity")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+      SELECT "Id"
+      FROM "Products"
+      WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+Given the product "Smartphone" with ID 1 exists in the database
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Category", "p"."Date", "p"."Name", "p"."Price", "p"."Quantity"
+      FROM "Products" AS "p"
+      WHERE "p"."Id" = @__p_0
+      LIMIT 1
+-> done: EditProductStepDefinitions.GivenTheProductWithIDExistsInTheDatabase("Smartphone", 1) (0,0s)
+When the user updates the product with name "Smartphone Pro" and price 1200
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Category", "p"."Date", "p"."Name", "p"."Price", "p"."Quantity"
+      FROM "Products" AS "p"
+      WHERE "p"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 14), @p1='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Products" SET "Name" = @p0, "Price" = @p1
+      WHERE "Id" = @p2;
+      SELECT changes();
+-> done: EditProductStepDefinitions.WhenTheUserUpdatesTheProductWithNameAndPrice("Smartphone Pro", 1200) (0,0s)
+Then the service should successfully save the product "Smartphone Pro" with price 1200
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Category", "p"."Date", "p"."Name", "p"."Price", "p"."Quantity"
+      FROM "Products" AS "p"
+      WHERE "p"."Id" = @__p_0
+      LIMIT 1
+-> done: EditProductStepDefinitions.ThenTheServiceShouldSuccessfullySaveTheProductWithPrice("Smartphone Pro", 1200) (0,0s)

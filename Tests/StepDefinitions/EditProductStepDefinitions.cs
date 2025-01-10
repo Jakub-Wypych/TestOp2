@@ -1,78 +1,60 @@
-using System;
+using System.Net.Http.Json;
 using TechTalk.SpecFlow;
-using Moq;
-using ProductApp.Models;
-using ProductApp.Services;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using ProductApp.Models;
+using ProductApp.Services;
+using Microsoft.AspNetCore.Mvc.Testing;
+using System;
 using BLZR;
+using Microsoft.Extensions.DependencyInjection;
+using ProductApi;
 
 namespace Tests.StepDefinitions
 {
     [Binding]
     public class EditProductStepDefinitions
     {
-        private readonly Mock<IProductService> _mockProductService;
+        private readonly WebApplicationFactory<ProductApi.TestProgram> _factory;
+        private readonly HttpClient _client;
+        private readonly IProductService _productService;
         private Product _existingProduct;
         private Product _updatedProduct;
         private ServiceResponse<bool> _response;
 
-        public EditProductStepDefinitions()
+        public EditProductStepDefinitions(WebApplicationFactory<ProductApi.TestProgram> factory)
         {
-            _mockProductService = new Mock<IProductService>();
+            _factory = factory;
+            _client = factory.CreateClient();
+            _productService = new ProductService(_client);
+        }
+
+        [BeforeScenario]
+        public async Task Setup()
+        {
+            var scope = _factory.Services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            dbContext.Database.EnsureDeleted();
+            dbContext.Database.EnsureCreated();
 
             _existingProduct = new Product
             {
-                Id = 1,
                 Name = "Smartphone",
                 Price = 500,
                 Quantity = 10,
                 Category = "Electronics",
                 Date = DateTime.Now
             };
-
-            _mockProductService.Setup(service => service.GetProductAsync(It.IsAny<int>()))
-                .ReturnsAsync((int id) => id == _existingProduct.Id
-                    ? new ServiceResponse<Product> { Success = true, Data = _existingProduct }
-                    : new ServiceResponse<Product> { Success = false, Message = "Product does not exist" });
-
-            _mockProductService.Setup(service => service.EditProductAsync(It.IsAny<Product>()))
-           .ReturnsAsync((Product product) =>
-           {
-               if (product.Id == -1) 
-                   return new ServiceResponse<bool> { Success = false, Message = "Product does not exist" };
-               if (string.IsNullOrWhiteSpace(product.Name))
-                   return new ServiceResponse<bool> { Success = false, Message = "Name is required" };
-               if (product.Price <= 0)
-                   return new ServiceResponse<bool> { Success = false, Message = "Price must be greater than 0" };
-               if (product.Quantity < 0)
-                   return new ServiceResponse<bool> { Success = false, Message = "Quantity cannot be negative" };
-               return new ServiceResponse<bool> { Success = true, Message = $"Product {product.Name} with price {product.Price} saved successfully" };
-           });
-
-        }
-
-        [BeforeScenario]
-        public void Setup() 
-        {            
-            _updatedProduct = new Product
-            {
-                Id = 1,
-                Name = "Smartphone",
-                Price = 1000,
-                Quantity = 10
-            };        
+            dbContext.Products.Add(_existingProduct);
+            await dbContext.SaveChangesAsync();
         }
 
         [Given(@"the product ""([^""]*)"" with ID (.*) exists in the database")]
-        public void GivenTheProductWithIDExistsInTheDatabase(string productName, int productId)
+        public async Task GivenTheProductWithIDExistsInTheDatabase(string productName, int productId)
         {
-            _mockProductService.Setup(service => service.GetProductAsync(productId))
-                .ReturnsAsync(new ServiceResponse<Product>
-                {
-                    Success = true,
-                    Data = _existingProduct
-                });
+            var product = await _productService.GetProductAsync(productId);
+            Assert.IsTrue(product.Success);
+            Assert.AreEqual(productName, product.Data.Name);
         }
 
         [When(@"the user updates the product with name ""([^""]*)"" and price (.*)")]
@@ -88,32 +70,38 @@ namespace Tests.StepDefinitions
                 Date = _existingProduct.Date
             };
 
-            _response = await _mockProductService.Object.EditProductAsync(_updatedProduct);
+            _response = await _productService.EditProductAsync(_updatedProduct);
         }
 
         [Then(@"the service should successfully save the product ""([^""]*)"" with price (.*)")]
-        public void ThenTheServiceShouldSuccessfullySaveTheProductWithPrice(string productName, decimal price)
+        public async Task ThenTheServiceShouldSuccessfullySaveTheProductWithPrice(string productName, decimal price)
         {
             Assert.IsTrue(_response.Success);
-            Assert.AreEqual($"Product {productName} with price {price} saved successfully", _response.Message);
+
+            var updatedProduct = await _productService.GetProductAsync(_updatedProduct.Id);
+            Assert.IsTrue(updatedProduct.Success);
+            Assert.AreEqual(productName, updatedProduct.Data.Name);
+            Assert.AreEqual(price, updatedProduct.Data.Price);
         }
 
         [Given(@"the product with ID (.*) does not exist")]
-        public void GivenTheProductWithIDDoesNotExistInTheDatabase(int productId)
+        public async Task GivenTheProductWithIDDoesNotExistInTheDatabase(int productId)
         {
-            _mockProductService.Setup(service => service.GetProductAsync(productId))
-                .ReturnsAsync(new ServiceResponse<Product>
-                {
-                    Success = false,
-                    Message = "Product does not exist"
-                });
+            var product = await _productService.GetProductAsync(productId);
+            Assert.IsFalse(product.Success);
         }
 
         [When(@"the user attempts to edit the product with ID (.*)")]
         public async Task WhenTheUserAttemptsToEditTheProductWithID(int productId)
         {
-            _updatedProduct.Id = productId;
-            _response = await _mockProductService.Object.EditProductAsync(_updatedProduct);
+            _updatedProduct = new Product
+            {
+                Id = productId,
+                Name = "Invalid Product",
+                Price = 100,
+                Quantity = 5
+            };
+            _response = await _productService.EditProductAsync(_updatedProduct);
         }
 
         [Then(@"the service should return the message ""([^""]*)""")]
@@ -123,30 +111,54 @@ namespace Tests.StepDefinitions
         }
 
         [Then(@"the product should not be updated")]
-        public void ThenTheProductShouldNotBeUpdated()
+        public async Task ThenTheProductShouldNotBeUpdated()
         {
-            Assert.IsFalse(_response.Success);
+            var originalProduct = await _productService.GetProductAsync(_existingProduct.Id);
+            Assert.AreEqual(_existingProduct.Name, originalProduct.Data.Name);
+            Assert.AreEqual(_existingProduct.Price, originalProduct.Data.Price);
+            Assert.AreEqual(_existingProduct.Quantity, originalProduct.Data.Quantity);
         }
 
         [When(@"the user submits the product update with missing Name field")]
         public async Task WhenTheUserSubmitsTheProductUpdateWithMissingNameField()
         {
-            _updatedProduct.Name = string.Empty; 
-            _response = await _mockProductService.Object.EditProductAsync(_updatedProduct);
+            _updatedProduct = new Product
+            {
+                Id = _existingProduct.Id,
+                Name = string.Empty,
+                Price = _existingProduct.Price,
+                Quantity = _existingProduct.Quantity
+            };
+
+            _response = await _productService.EditProductAsync(_updatedProduct);
         }
 
         [When(@"the user submits the product update with negative Price \((.*)\)")]
         public async Task WhenTheUserSubmitsTheProductUpdateWithNegativePrice(decimal price)
         {
-            _updatedProduct.Price = price;
-            _response = await _mockProductService.Object.EditProductAsync(_updatedProduct);
+            _updatedProduct = new Product
+            {
+                Id = _existingProduct.Id,
+                Name = _existingProduct.Name,
+                Price = price,
+                Quantity = _existingProduct.Quantity
+            };
+
+            _response = await _productService.EditProductAsync(_updatedProduct);
         }
 
         [When(@"the user submits the product update with negative Quantity \((.*)\)")]
         public async Task WhenTheUserSubmitsTheProductUpdateWithNegativeQuantity(int quantity)
         {
-            _updatedProduct.Quantity = quantity;
-            _response = await _mockProductService.Object.EditProductAsync(_updatedProduct);
+            _updatedProduct = new Product
+            {
+                Id = _existingProduct.Id,
+                Name = _existingProduct.Name,
+                Price = _existingProduct.Price,
+                Quantity = quantity
+            };
+
+            _response = await _productService.EditProductAsync(_updatedProduct);
         }
     }
 }

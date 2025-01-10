@@ -1,0 +1,80 @@
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Products" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Products" PRIMARY KEY AUTOINCREMENT,
+          "Name" TEXT NOT NULL,
+          "Date" TEXT NOT NULL,
+          "Price" decimal(18,2) NOT NULL DEFAULT '0.0',
+          "Category" TEXT NOT NULL,
+          "Quantity" INTEGER NOT NULL DEFAULT 1
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 11), @p2='?' (DbType = DateTime), @p3='?' (Size = 10), @p4='?' (DbType = Decimal), @p5='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Products" ("Id", "Category", "Date", "Name", "Price", "Quantity")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Products" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Products" PRIMARY KEY AUTOINCREMENT,
+          "Name" TEXT NOT NULL,
+          "Date" TEXT NOT NULL,
+          "Price" decimal(18,2) NOT NULL DEFAULT '0.0',
+          "Category" TEXT NOT NULL,
+          "Quantity" INTEGER NOT NULL DEFAULT 1
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 11), @p1='?' (DbType = DateTime), @p2='?' (Size = 10), @p3='?' (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Products" ("Category", "Date", "Name", "Price", "Quantity")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+      SELECT "Id"
+      FROM "Products"
+      WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+Given the product "Smartphone" with ID 1 exists in the database
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Category", "p"."Date", "p"."Name", "p"."Price", "p"."Quantity"
+      FROM "Products" AS "p"
+      WHERE "p"."Id" = @__p_0
+      LIMIT 1
+-> done: EditProductStepDefinitions.GivenTheProductWithIDExistsInTheDatabase("Smartphone", 1) (0,4s)
+When the user submits the product update with negative Price (-100)
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Category", "p"."Date", "p"."Name", "p"."Price", "p"."Quantity"
+      FROM "Products" AS "p"
+      WHERE "p"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Products" SET "Category" = @p0, "Date" = @p1, "Price" = @p2
+      WHERE "Id" = @p3;
+      SELECT changes();
+-> done: EditProductStepDefinitions.WhenTheUserSubmitsTheProductUpdateWithNegativePrice(-100) (0,0s)
+Then the service should return the message "Price must be greater than 0"
+-> done: EditProductStepDefinitions.ThenTheServiceShouldReturnTheMessage("Price must be gre...") (0,0s)
+And the product should not be updated
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Category", "p"."Date", "p"."Name", "p"."Price", "p"."Quantity"
+      FROM "Products" AS "p"
+      WHERE "p"."Id" = @__p_0
+      LIMIT 1
+-> error:   Expected: 500m
+  But was:  -100m
+ (0,0s)

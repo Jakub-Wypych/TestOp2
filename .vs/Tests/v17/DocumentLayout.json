@@ -1,13 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\",
+  "WorkspaceRootPath": "C:\\Users\\aestr\\source\\repos\\TestOp2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\ja\\onedrive - politechnika warszawska\\pulpit\\nowy folder (2)\\studia\\sem 5\\testop2\\tests\\stepdefinitions\\apioperationsforproductsstepdefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\stepdefinitions\\apioperationsforproductsstepdefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\specflow.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\specflow.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\ja\\onedrive - politechnika warszawska\\pulpit\\nowy folder (2)\\studia\\sem 5\\testop2\\tests\\features\\apioperations.feature||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\features\\editproduct.feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\features\\editproduct.feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\features\\editproduct.feature||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\features\\editproduct.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\features\\deleteproduct.feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\features\\deleteproduct.feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\features\\apioperations.feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\features\\apioperations.feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\implicitusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\implicitusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\stepdefinitions\\addproductstepdefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\stepdefinitions\\addproductstepdefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\features\\addproduct.feature||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\features\\addproduct.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\stepdefinitions\\editproductstepdefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\stepdefinitions\\editproductstepdefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|c:\\users\\aestr\\source\\repos\\testop2\\tests\\features\\apioperations.feature||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{F89812A7-89BE-4EBC-B114-F8F8DB2C56A2}|Tests\\Tests.csproj|solutionrelative:tests\\features\\apioperations.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -18,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +62,132 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "APIOperationsForProductsStepDefinitions.cs",
-              "DocumentMoniker": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\Tests\\StepDefinitions\\APIOperationsForProductsStepDefinitions.cs",
-              "RelativeDocumentMoniker": "Tests\\StepDefinitions\\APIOperationsForProductsStepDefinitions.cs",
-              "ToolTip": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\Tests\\StepDefinitions\\APIOperationsForProductsStepDefinitions.cs",
-              "RelativeToolTip": "Tests\\StepDefinitions\\APIOperationsForProductsStepDefinitions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAABMAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "EditProduct.feature.cs",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\EditProduct.feature.cs",
+              "RelativeDocumentMoniker": "Tests\\Features\\EditProduct.feature.cs",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\EditProduct.feature.cs",
+              "RelativeToolTip": "Tests\\Features\\EditProduct.feature.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T23:22:57.471Z",
+              "WhenOpened": "2025-01-10T12:23:15.642Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApiOperations.feature",
-              "DocumentMoniker": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\Tests\\Features\\ApiOperations.feature",
-              "RelativeDocumentMoniker": "Tests\\Features\\ApiOperations.feature",
-              "ToolTip": "C:\\Users\\Ja\\OneDrive - Politechnika Warszawska\\Pulpit\\Nowy folder (2)\\Studia\\Sem 5\\TestOp2\\Tests\\Features\\ApiOperations.feature",
-              "RelativeToolTip": "Tests\\Features\\ApiOperations.feature",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "EditProduct.feature",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\EditProduct.feature",
+              "RelativeDocumentMoniker": "Tests\\Features\\EditProduct.feature",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\EditProduct.feature",
+              "RelativeToolTip": "Tests\\Features\\EditProduct.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJXSURBVDhPdVNfSFNhFP/duznd5tRy5N2o1BwoCVJZD0FgulCIXiJqIyiCKIKeequnKGgQ\u002BBSBT770oNtDgv15CKKCGkRgD/WQZCqBcnfnarmcbtO72znfvddNqx/8zs537nd\u002B3znfdybhXxhXfJCwn7x24gb589AxjfOpvPhuwzCMrQIGMaFcInuDyAJOIqNE/EyMIZqaEBELFYG4Ukd2mHidl7WyC8VyCbIkC39NL3CYcROSNIyIqvNCFiETV4nX2Olu7MS78CS6Gzpxse0s3gxM0EmbZ92m0k9YviUQV5rI3iU6drqakFtfQat3D476D\u002BNkIIzVjTXqjvsTcBPv4WlQKNo9DhEbW7278br/MV5qb9H36jR\u002Bln4hmfmAH8WsuauCQ8iX99HvrN3CATaLqypG58bglBzQCkuCX3IzSBczYlMV\u002BHSRYwuISnSjjO/5BZFU0IviAyNU34ZYzy0MKsetiICXjS0wxybka8fD3hgGWo7BX9uMZtcOBOp2wUEVDSn9GOm9LzZbWGBjXm1C6aA7\u002Bko3LXfQacvrOSTDT/BgZhRdDSF0\u002BUI4k7wMj8MDtaBxBr2p0YKoljMriKRmyT7im/62Mg9fTT09tYyP2U94n5lC0K2I9qxkxhgns1M9SEGyz4gHecnPmS0ti0HyON34TU9rIQ3J6ENEm\u002BZFRYAxrvgpMkLeKSJP5nbwfyFC4/zcXG4XYCQCNdTJEeqRp/KCGRRIEa9QMle5ib8FbCQCgzSyL8hbJE7S1juIqmnxrQr/F4gH9lIVPeRNQdZVnFsy41sA/AGfbrS3fsL98AAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-01-09T23:21:45.749Z",
+              "WhenOpened": "2025-01-10T12:23:12.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DeleteProduct.feature.cs",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\DeleteProduct.feature.cs",
+              "RelativeDocumentMoniker": "Tests\\Features\\DeleteProduct.feature.cs",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\DeleteProduct.feature.cs",
+              "RelativeToolTip": "Tests\\Features\\DeleteProduct.feature.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:23:10.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApiOperations.feature.cs",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\ApiOperations.feature.cs",
+              "RelativeDocumentMoniker": "Tests\\Features\\ApiOperations.feature.cs",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\ApiOperations.feature.cs",
+              "RelativeToolTip": "Tests\\Features\\ApiOperations.feature.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:23:08.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ImplicitUsings.cs",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\ImplicitUsings.cs",
+              "RelativeDocumentMoniker": "Tests\\ImplicitUsings.cs",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\ImplicitUsings.cs",
+              "RelativeToolTip": "Tests\\ImplicitUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:23:04.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "specflow.json",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\specflow.json",
+              "RelativeDocumentMoniker": "Tests\\specflow.json",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\specflow.json",
+              "RelativeToolTip": "Tests\\specflow.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-10T12:22:53.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddProductStepDefinitions.cs",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\StepDefinitions\\AddProductStepDefinitions.cs",
+              "RelativeDocumentMoniker": "Tests\\StepDefinitions\\AddProductStepDefinitions.cs",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\StepDefinitions\\AddProductStepDefinitions.cs",
+              "RelativeToolTip": "Tests\\StepDefinitions\\AddProductStepDefinitions.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwEYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:21:10.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApiOperations.feature",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\ApiOperations.feature",
+              "RelativeDocumentMoniker": "Tests\\Features\\ApiOperations.feature",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\ApiOperations.feature",
+              "RelativeToolTip": "Tests\\Features\\ApiOperations.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJXSURBVDhPdVNfSFNhFP/duznd5tRy5N2o1BwoCVJZD0FgulCIXiJqIyiCKIKeequnKGgQ\u002BBSBT770oNtDgv15CKKCGkRgD/WQZCqBcnfnarmcbtO72znfvddNqx/8zs537nd\u002B3znfdybhXxhXfJCwn7x24gb589AxjfOpvPhuwzCMrQIGMaFcInuDyAJOIqNE/EyMIZqaEBELFYG4Ukd2mHidl7WyC8VyCbIkC39NL3CYcROSNIyIqvNCFiETV4nX2Olu7MS78CS6Gzpxse0s3gxM0EmbZ92m0k9YviUQV5rI3iU6drqakFtfQat3D476D\u002BNkIIzVjTXqjvsTcBPv4WlQKNo9DhEbW7278br/MV5qb9H36jR\u002Bln4hmfmAH8WsuauCQ8iX99HvrN3CATaLqypG58bglBzQCkuCX3IzSBczYlMV\u002BHSRYwuISnSjjO/5BZFU0IviAyNU34ZYzy0MKsetiICXjS0wxybka8fD3hgGWo7BX9uMZtcOBOp2wUEVDSn9GOm9LzZbWGBjXm1C6aA7\u002Bko3LXfQacvrOSTDT/BgZhRdDSF0\u002BUI4k7wMj8MDtaBxBr2p0YKoljMriKRmyT7im/62Mg9fTT09tYyP2U94n5lC0K2I9qxkxhgns1M9SEGyz4gHecnPmS0ti0HyON34TU9rIQ3J6ENEm\u002BZFRYAxrvgpMkLeKSJP5nbwfyFC4/zcXG4XYCQCNdTJEeqRp/KCGRRIEa9QMle5ib8FbCQCgzSyL8hbJE7S1juIqmnxrQr/F4gH9lIVPeRNQdZVnFsy41sA/AGfbrS3fsL98AAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-01-10T12:21:09.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddProduct.feature",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\AddProduct.feature",
+              "RelativeDocumentMoniker": "Tests\\Features\\AddProduct.feature",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\Features\\AddProduct.feature",
+              "RelativeToolTip": "Tests\\Features\\AddProduct.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJXSURBVDhPdVNfSFNhFP/duznd5tRy5N2o1BwoCVJZD0FgulCIXiJqIyiCKIKeequnKGgQ\u002BBSBT770oNtDgv15CKKCGkRgD/WQZCqBcnfnarmcbtO72znfvddNqx/8zs537nd\u002B3znfdybhXxhXfJCwn7x24gb589AxjfOpvPhuwzCMrQIGMaFcInuDyAJOIqNE/EyMIZqaEBELFYG4Ukd2mHidl7WyC8VyCbIkC39NL3CYcROSNIyIqvNCFiETV4nX2Olu7MS78CS6Gzpxse0s3gxM0EmbZ92m0k9YviUQV5rI3iU6drqakFtfQat3D476D\u002BNkIIzVjTXqjvsTcBPv4WlQKNo9DhEbW7278br/MV5qb9H36jR\u002Bln4hmfmAH8WsuauCQ8iX99HvrN3CATaLqypG58bglBzQCkuCX3IzSBczYlMV\u002BHSRYwuISnSjjO/5BZFU0IviAyNU34ZYzy0MKsetiICXjS0wxybka8fD3hgGWo7BX9uMZtcOBOp2wUEVDSn9GOm9LzZbWGBjXm1C6aA7\u002Bko3LXfQacvrOSTDT/BgZhRdDSF0\u002BUI4k7wMj8MDtaBxBr2p0YKoljMriKRmyT7im/62Mg9fTT09tYyP2U94n5lC0K2I9qxkxhgns1M9SEGyz4gHecnPmS0ti0HyON34TU9rIQ3J6ENEm\u002BZFRYAxrvgpMkLeKSJP5nbwfyFC4/zcXG4XYCQCNdTJEeqRp/KCGRRIEa9QMle5ib8FbCQCgzSyL8hbJE7S1juIqmnxrQr/F4gH9lIVPeRNQdZVnFsy41sA/AGfbrS3fsL98AAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-01-10T12:21:04.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditProductStepDefinitions.cs",
+              "DocumentMoniker": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\StepDefinitions\\EditProductStepDefinitions.cs",
+              "RelativeDocumentMoniker": "Tests\\StepDefinitions\\EditProductStepDefinitions.cs",
+              "ToolTip": "C:\\Users\\aestr\\source\\repos\\TestOp2\\Tests\\StepDefinitions\\EditProductStepDefinitions.cs",
+              "RelativeToolTip": "Tests\\StepDefinitions\\EditProductStepDefinitions.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:16:32.731Z",
               "EditorCaption": ""
             }
           ]

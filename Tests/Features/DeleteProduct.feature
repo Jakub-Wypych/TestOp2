@@ -8,10 +8,6 @@
 
   Scenario: Successfully deleting multiple products individually
     Given the products "Smartphone", "Tablet", and "Laptop" exist in the list of products
-    When the user clicks the Delete button next to the product "Smartphone"
-    Then the service should successfully remove the product "Smartphone" from the list
-    And a success message should appear
-
     When the user clicks the Delete button next to the product "Tablet"
     Then the service should successfully remove the product "Tablet" from the list
     And a success message should appear

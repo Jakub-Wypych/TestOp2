@@ -135,6 +135,12 @@ namespace ProductApp.Services
 
         public async Task<ServiceResponse<bool>> EditProductAsync(Product product)
         {
+            var resp = Validate(product);
+            if (!resp.Success) 
+            {
+                return resp;
+            }
+
             string url = $"{BaseUrl}/{product.Id}";
             var content = new StringContent(JsonSerializer.Serialize(product), Encoding.UTF8, "application/json");
 
@@ -230,7 +236,7 @@ namespace ProductApp.Services
                 {
                     return new ServiceResponse<bool>
                     {
-                        Data = false,
+                        Data = true, // Poprawka: Produkt został faktycznie usunięty.
                         Success = true,
                         Message = "Product successfully deleted."
                     };
@@ -240,7 +246,7 @@ namespace ProductApp.Services
                 {
                     Data = false,
                     Success = false,
-                    Message = $"Failed to delete product. Server returned status code: {response.StatusCode}"
+                    Message = "Product does not exist"
                 };
             }
             catch (Exception ex)
@@ -253,5 +259,6 @@ namespace ProductApp.Services
                 };
             }
         }
+
     }
 }

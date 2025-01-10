@@ -1,76 +1,64 @@
-using System;
-using TechTalk.SpecFlow;
-using Moq;
+using NUnit.Framework;
 using ProductApp.Models;
 using ProductApp.Services;
-using NUnit.Framework;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Testing;
+using System.Collections.Generic;
 using BLZR;
+using Microsoft.Extensions.DependencyInjection;
+using ProductApi;
 
 namespace Tests.StepDefinitions
 {
     [Binding]
     public class AddProductStepDefinitions
     {
-        private readonly Mock<IProductService> _mockProductService;
+        private readonly HttpClient _client;
+        private readonly IProductService _productService;
         private ServiceResponse<bool> _response;
         private Product _newProduct;
-        private Product _existingProduct;
 
-        public AddProductStepDefinitions()
+        public AddProductStepDefinitions(WebApplicationFactory<ProductApi.TestProgram> factory)
         {
-            _mockProductService = new Mock<IProductService>();
+            _client = factory.CreateClient();
 
-            _existingProduct = new Product
-            {
-                Id = 1,
-                Name = "Smartphone",
-                Price = 500,
-                Quantity = 10,
-                Category = "Electronics",
-                Date = DateTime.Now
-            };
+            _productService = new ProductService(_client);
 
-            _mockProductService.Setup(service => service.AddProductAsync(It.IsAny<Product>()))
-                .ReturnsAsync((Product product) =>
-                {
-                    if (string.IsNullOrWhiteSpace(product.Name))
-                        return new ServiceResponse<bool> { Success = false, Message = "Name is required" };
+            var scope = factory.Services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-                    if (product.Price <= 0)
-                        return new ServiceResponse<bool> { Success = false, Message = "Price must be greater than 0" };
-
-                    if (product.Quantity < 0)
-                        return new ServiceResponse<bool> { Success = false, Message = "Quantity cannot be negative" };
-
-                    return new ServiceResponse<bool> { Success = true, Message = $"Product {product.Name} with price {product.Price} added successfully" };
-                });
+            dbContext.Database.EnsureDeleted();
+            dbContext.Database.EnsureCreated();
         }
 
         [BeforeScenario]
         public void SetupNewProduct()
         {
-            _newProduct = new Product();
-            _newProduct.Name = "Product";
-            _newProduct.Date = DateTime.Now;
-            _newProduct.Price = 1;
-            _newProduct.Quantity = 1;
+            _newProduct = new Product
+            {
+                Name = "Product",
+                Price = 1,
+                Quantity = 1,
+                Category = "TestCategory",
+                Date = DateTime.Now
+            };
         }
-
 
         [When(@"clicks the Add Product button")]
         public async Task WhenClicksTheButton()
         {
-            _response = await _mockProductService.Object.AddProductAsync(_newProduct);
+            _response = await _productService.AddProductAsync(_newProduct);
         }
 
         [Then(@"the product ""([^""]*)"" with price (.*) should be added to the list of products")]
-        public void ThenTheProductWithPriceShouldBeAddedToTheListOfProducts(string productName, decimal price)
+        public async Task ThenTheProductWithPriceShouldBeAddedToTheListOfProducts(string productName, decimal price)
         {
             Assert.IsTrue(_response.Success);
-            Assert.AreEqual($"Product {productName} with price {price} added successfully", _response.Message);
-        }
+            Assert.AreEqual($"Product '{productName}' added successfully", _response.Message);
 
+            var productsResponse = await _productService.GetProductsAsync();
+            Assert.IsTrue(productsResponse.Success);
+            Assert.IsTrue(productsResponse.Data.Any(p => p.Name == productName && p.Price == price));
+        }
 
         [When(@"user submits the form with the Name field missing")]
         public void WhenUserSubmitsTheFormWithTheFieldMissing()
@@ -79,9 +67,12 @@ namespace Tests.StepDefinitions
         }
 
         [Then(@"the product should not be added")]
-        public void ThenTheProductShouldNotBeAdded()
+        public async Task ThenTheProductShouldNotBeAdded()
         {
             Assert.IsFalse(_response.Success);
+
+            var productsResponse = await _productService.GetProductsAsync();
+            Assert.IsFalse(productsResponse.Data.Any(p => string.IsNullOrWhiteSpace(p.Name)));
         }
 
         [Then(@"the user should see the message ""([^""]*)""")]
