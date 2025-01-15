@@ -29,7 +29,7 @@ public class TestProgram
         builder.Services.AddControllers();
 
         var app = builder.Build();
-
+        
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -39,7 +39,7 @@ public class TestProgram
         app.UseCors("AllowBlazorApp");
         app.MapControllers();
 
-        app.Run();
+        app.Run("https://localhost:5001");
     }
 }
 

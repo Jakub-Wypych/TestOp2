@@ -15,6 +15,13 @@ else if (errorMessage != null)
 }
 else if (products != null && products.Any())
 {
+    <div class="mb-3">
+        <button class="btn btn-secondary" @onclick="SortByName">Sort by Name</button>
+        <button class="btn btn-secondary" @onclick="SortByDate">Sort by Date</button>
+        <button class="btn btn-secondary" @onclick="SortByPrice">Sort by Price</button>
+        <button class="btn btn-secondary" @onclick="SortByQuantity">Sort by Quantity</button>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -64,6 +71,7 @@ else
     private string? errorMessage;
     private string successMessage = string.Empty;
     private bool loading = true;
+    private bool isAscending = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -87,6 +95,42 @@ else
         {
             loading = false;
         }
+    }
+
+    private void SortByName()
+    {
+        if (isAscending)
+            products = products.OrderBy(p => p.Name).ToList();
+        else
+            products = products.OrderByDescending(p => p.Name).ToList();
+        isAscending = !isAscending;
+    }
+
+    private void SortByDate()
+    {
+        if (isAscending)
+            products = products.OrderBy(p => p.Date).ToList();
+        else
+            products = products.OrderByDescending(p => p.Date).ToList();
+        isAscending = !isAscending;
+    }
+
+    private void SortByPrice()
+    {
+        if (isAscending)
+            products = products.OrderBy(p => p.Price).ToList();
+        else
+            products = products.OrderByDescending(p => p.Price).ToList();
+        isAscending = !isAscending;
+    }
+
+    private void SortByQuantity()
+    {
+        if (isAscending)
+            products = products.OrderBy(p => p.Quantity).ToList();
+        else
+            products = products.OrderByDescending(p => p.Quantity).ToList();
+        isAscending = !isAscending;
     }
 
     [Inject]

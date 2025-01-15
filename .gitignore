@@ -1,0 +1,29 @@
+# .NET build directories
+bin/
+obj/
+
+# User-specific files
+.idea/
+.vs/
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# JetBrains Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Thumbnails
+Thumbs.db
+
+# Logs
+*.log
+
+# ASP.NET Temporary Files
+aspnet_client/

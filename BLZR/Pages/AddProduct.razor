@@ -25,7 +25,7 @@
     <label for="productPrice" class="form-label">Product Price</label>
     <input type="number" id="productPrice" class="form-control @(newProduct.Price < 0 && invalidSubmit ? "is-invalid" : "")"
            @bind="newProduct.Price" placeholder="Enter product price" min="0" />
-    @if (newProduct.Price < 0 && invalidSubmit)
+    @if (newProduct.Price <= 0 && invalidSubmit)
     {
         <div class="invalid-feedback">Product Price must be greater or equal than 0.</div>
     }
@@ -45,7 +45,7 @@
     <label for="stockQuantity" class="form-label">Stock Quantity</label>
     <input type="number" id="stockQuantity" class="form-control @(newProduct.Quantity < 0 && invalidSubmit ? "is-invalid" : "")"
            @bind="newProduct.Quantity" placeholder="Enter stock quantity" min="0" />
-    @if (newProduct.Quantity < 0 && invalidSubmit)
+    @if (newProduct.Quantity <= 0 && invalidSubmit)
     {
         <div class="invalid-feedback">Stock Quantity must be greater or equal than 0.</div>
     }
@@ -85,9 +85,9 @@
         errorMessage = string.Empty;
 
         if (string.IsNullOrWhiteSpace(newProduct.Name) ||
-            newProduct.Price < 0 ||
+            newProduct.Price <= 0 ||
             string.IsNullOrWhiteSpace(newProduct.Category) ||
-            newProduct.Quantity < 0)
+            newProduct.Quantity <= 0)
         {
             invalidSubmit = true;
             return;

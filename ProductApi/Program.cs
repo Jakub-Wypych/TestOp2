@@ -5,7 +5,7 @@ namespace ProductApi;
 
 public class Program
 {
-    public static void Start(string[] args)
+    public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
