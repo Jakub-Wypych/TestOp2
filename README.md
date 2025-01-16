@@ -1,5 +1,6 @@
 # TestOp2
 
+Do testów muszą być uruchomione oba:
 
 GUI blazor
 ```bash
