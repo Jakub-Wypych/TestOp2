@@ -1,5 +1,11 @@
 ﻿{
   "bindingCulture": { "language": "pl-PL" },
+  "runtime": {
+    "execution": {
+      "testThreadCount": 4,
+      "stopAtFirstError": false 
+    }
+  },
   "plugins": [
     {
       "name": "SpecFlow.Plugins.NUnit",
