@@ -1,0 +1,24 @@
+services:
+  productapi:
+    build:
+      context: .
+      dockerfile: ProductApi/Dockerfile
+    container_name: productapi
+    environment:
+      - ConnectionStrings__DefaultConnection=Data Source=ProductDb.sqlite;
+    ports:
+      - "5001:80"
+    volumes:
+      - ./ProductApi/ProductDb.sqlite:/app/ProductDb.sqlite
+
+  blzr:
+    build:
+      context: ./BLZR
+    container_name: blzr
+    ports:
+      - "7086:443"
+    depends_on:
+      - productapi
+    environment:
+      - ASPNETCORE_URLS=https://+:443
+      - DOTNET_RUNNING_IN_CONTAINER=true
